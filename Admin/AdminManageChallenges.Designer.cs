@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             AMCTitle = new Label();
             AMCCategorybx = new ComboBox();
             AMCAddbtn = new SiticoneNetCoreUI.SiticoneButton();
@@ -41,6 +43,7 @@
             AMCCommunitytxt = new Label();
             AMCPersonalChallengesdgv = new DataGridView();
             AMCCommunityChallengesdgv = new DataGridView();
+            AMCPointstbx = new SiticoneNetCoreUI.SiticoneTextBox();
             AMCMainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AMCPersonalChallengesdgv).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AMCCommunityChallengesdgv).BeginInit();
@@ -66,11 +69,11 @@
             AMCCategorybx.ForeColor = Color.FromArgb(0, 64, 0);
             AMCCategorybx.FormattingEnabled = true;
             AMCCategorybx.Items.AddRange(new object[] { "Community", "Personal" });
-            AMCCategorybx.Location = new Point(111, 289);
+            AMCCategorybx.Location = new Point(95, 354);
             AMCCategorybx.Margin = new Padding(0);
             AMCCategorybx.Name = "AMCCategorybx";
             AMCCategorybx.Size = new Size(205, 38);
-            AMCCategorybx.TabIndex = 7;
+            AMCCategorybx.TabIndex = 4;
             // 
             // AMCAddbtn
             // 
@@ -121,7 +124,7 @@
             AMCAddbtn.IsReadOnly = false;
             AMCAddbtn.IsToggleButton = false;
             AMCAddbtn.IsToggled = false;
-            AMCAddbtn.Location = new Point(160, 389);
+            AMCAddbtn.Location = new Point(142, 428);
             AMCAddbtn.LongPressDurationMS = 1000;
             AMCAddbtn.Margin = new Padding(0);
             AMCAddbtn.Name = "AMCAddbtn";
@@ -142,13 +145,14 @@
             AMCAddbtn.ShakeDuration = 500;
             AMCAddbtn.ShakeIntensity = 5;
             AMCAddbtn.Size = new Size(125, 55);
-            AMCAddbtn.TabIndex = 10;
+            AMCAddbtn.TabIndex = 6;
             AMCAddbtn.Text = "Add";
             AMCAddbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMCAddbtn.TextColor = Color.White;
             AMCAddbtn.TooltipText = null;
             AMCAddbtn.UseAdvancedRendering = true;
             AMCAddbtn.UseParticles = false;
+            AMCAddbtn.Click += AMCAddbtn_Click;
             // 
             // AMCLoadbtn
             // 
@@ -199,7 +203,7 @@
             AMCLoadbtn.IsReadOnly = false;
             AMCLoadbtn.IsToggleButton = false;
             AMCLoadbtn.IsToggled = false;
-            AMCLoadbtn.Location = new Point(18, 389);
+            AMCLoadbtn.Location = new Point(0, 428);
             AMCLoadbtn.LongPressDurationMS = 1000;
             AMCLoadbtn.Margin = new Padding(0);
             AMCLoadbtn.Name = "AMCLoadbtn";
@@ -220,13 +224,14 @@
             AMCLoadbtn.ShakeDuration = 500;
             AMCLoadbtn.ShakeIntensity = 5;
             AMCLoadbtn.Size = new Size(125, 55);
-            AMCLoadbtn.TabIndex = 10;
+            AMCLoadbtn.TabIndex = 5;
             AMCLoadbtn.Text = "Load";
             AMCLoadbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMCLoadbtn.TextColor = Color.White;
             AMCLoadbtn.TooltipText = null;
             AMCLoadbtn.UseAdvancedRendering = true;
             AMCLoadbtn.UseParticles = false;
+            AMCLoadbtn.Click += AMCLoadbtn_Click;
             // 
             // AMCDeletebtn
             // 
@@ -277,7 +282,7 @@
             AMCDeletebtn.IsReadOnly = false;
             AMCDeletebtn.IsToggleButton = false;
             AMCDeletebtn.IsToggled = false;
-            AMCDeletebtn.Location = new Point(160, 478);
+            AMCDeletebtn.Location = new Point(142, 499);
             AMCDeletebtn.LongPressDurationMS = 1000;
             AMCDeletebtn.Margin = new Padding(0);
             AMCDeletebtn.Name = "AMCDeletebtn";
@@ -298,13 +303,14 @@
             AMCDeletebtn.ShakeDuration = 500;
             AMCDeletebtn.ShakeIntensity = 5;
             AMCDeletebtn.Size = new Size(125, 55);
-            AMCDeletebtn.TabIndex = 10;
+            AMCDeletebtn.TabIndex = 8;
             AMCDeletebtn.Text = "Delete";
             AMCDeletebtn.TextAlign = ContentAlignment.MiddleCenter;
             AMCDeletebtn.TextColor = Color.White;
             AMCDeletebtn.TooltipText = null;
             AMCDeletebtn.UseAdvancedRendering = true;
             AMCDeletebtn.UseParticles = false;
+            AMCDeletebtn.Click += AMCDeletebtn_Click;
             // 
             // AMCEditbtn
             // 
@@ -355,7 +361,7 @@
             AMCEditbtn.IsReadOnly = false;
             AMCEditbtn.IsToggleButton = false;
             AMCEditbtn.IsToggled = false;
-            AMCEditbtn.Location = new Point(18, 478);
+            AMCEditbtn.Location = new Point(0, 499);
             AMCEditbtn.LongPressDurationMS = 1000;
             AMCEditbtn.Margin = new Padding(0);
             AMCEditbtn.Name = "AMCEditbtn";
@@ -376,13 +382,14 @@
             AMCEditbtn.ShakeDuration = 500;
             AMCEditbtn.ShakeIntensity = 5;
             AMCEditbtn.Size = new Size(125, 55);
-            AMCEditbtn.TabIndex = 10;
+            AMCEditbtn.TabIndex = 7;
             AMCEditbtn.Text = "Edit";
             AMCEditbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMCEditbtn.TextColor = Color.White;
             AMCEditbtn.TooltipText = null;
             AMCEditbtn.UseAdvancedRendering = true;
             AMCEditbtn.UseParticles = false;
+            AMCEditbtn.Click += AMCEditbtn_Click;
             // 
             // AMCTitletbx
             // 
@@ -420,7 +427,7 @@
             AMCTitletbx.HoverBorderColor1 = Color.Green;
             AMCTitletbx.HoverBorderColor2 = Color.Green;
             AMCTitletbx.IsEnabled = true;
-            AMCTitletbx.Location = new Point(16, 56);
+            AMCTitletbx.Location = new Point(0, 74);
             AMCTitletbx.Margin = new Padding(0);
             AMCTitletbx.Name = "AMCTitletbx";
             AMCTitletbx.PlaceholderColor = Color.Gray;
@@ -439,7 +446,7 @@
             AMCTitletbx.SolidBorderFocusColor = Color.Green;
             AMCTitletbx.SolidBorderHoverColor = Color.Green;
             AMCTitletbx.SolidFillColor = Color.FromArgb(192, 255, 192);
-            AMCTitletbx.TabIndex = 11;
+            AMCTitletbx.TabIndex = 1;
             AMCTitletbx.TextPadding = new Padding(11, 2, 11, 2);
             AMCTitletbx.ValidationErrorMessage = "Invalid input.";
             AMCTitletbx.ValidationFunction = null;
@@ -450,7 +457,7 @@
             AMCDescriptiontbx.BorderStyle = BorderStyle.None;
             AMCDescriptiontbx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AMCDescriptiontbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMCDescriptiontbx.Location = new Point(18, 130);
+            AMCDescriptiontbx.Location = new Point(0, 201);
             AMCDescriptiontbx.Margin = new Padding(0);
             AMCDescriptiontbx.MinimumSize = new Size(100, 100);
             AMCDescriptiontbx.Multiline = true;
@@ -458,7 +465,7 @@
             AMCDescriptiontbx.PlaceholderText = "Description...";
             AMCDescriptiontbx.ScrollBars = ScrollBars.Vertical;
             AMCDescriptiontbx.Size = new Size(321, 130);
-            AMCDescriptiontbx.TabIndex = 12;
+            AMCDescriptiontbx.TabIndex = 3;
             // 
             // AMCMainPanel
             // 
@@ -467,6 +474,7 @@
             AMCMainPanel.Controls.Add(AMCPersonalChallengesdgv);
             AMCMainPanel.Controls.Add(AMCCommunityChallengesdgv);
             AMCMainPanel.Controls.Add(AMCDescriptiontbx);
+            AMCMainPanel.Controls.Add(AMCPointstbx);
             AMCMainPanel.Controls.Add(AMCTitletbx);
             AMCMainPanel.Controls.Add(AMCEditbtn);
             AMCMainPanel.Controls.Add(AMCDeletebtn);
@@ -486,7 +494,7 @@
             AMCPersonaltxt.FlatStyle = FlatStyle.Flat;
             AMCPersonaltxt.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMCPersonaltxt.ForeColor = Color.Green;
-            AMCPersonaltxt.Location = new Point(348, 300);
+            AMCPersonaltxt.Location = new Point(349, 298);
             AMCPersonaltxt.Margin = new Padding(0);
             AMCPersonaltxt.Name = "AMCPersonaltxt";
             AMCPersonaltxt.Size = new Size(105, 36);
@@ -500,7 +508,7 @@
             AMCCommunitytxt.FlatStyle = FlatStyle.Flat;
             AMCCommunitytxt.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMCCommunitytxt.ForeColor = Color.Green;
-            AMCCommunitytxt.Location = new Point(348, 56);
+            AMCCommunitytxt.Location = new Point(349, 42);
             AMCCommunitytxt.Margin = new Padding(0);
             AMCCommunitytxt.Name = "AMCCommunitytxt";
             AMCCommunitytxt.Size = new Size(138, 36);
@@ -509,25 +517,137 @@
             // 
             // AMCPersonalChallengesdgv
             // 
+            AMCPersonalChallengesdgv.AllowUserToAddRows = false;
+            AMCPersonalChallengesdgv.AllowUserToDeleteRows = false;
+            AMCPersonalChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMCPersonalChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMCPersonalChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AMCPersonalChallengesdgv.Location = new Point(348, 336);
+            AMCPersonalChallengesdgv.BorderStyle = BorderStyle.None;
+            AMCPersonalChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Green;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            AMCPersonalChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AMCPersonalChallengesdgv.ColumnHeadersHeight = 50;
+            AMCPersonalChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            AMCPersonalChallengesdgv.DefaultCellStyle = dataGridViewCellStyle2;
+            AMCPersonalChallengesdgv.EnableHeadersVisualStyles = false;
+            AMCPersonalChallengesdgv.GridColor = Color.Green;
+            AMCPersonalChallengesdgv.Location = new Point(349, 334);
             AMCPersonalChallengesdgv.Margin = new Padding(0);
+            AMCPersonalChallengesdgv.MultiSelect = false;
             AMCPersonalChallengesdgv.Name = "AMCPersonalChallengesdgv";
-            AMCPersonalChallengesdgv.RowHeadersWidth = 51;
-            AMCPersonalChallengesdgv.Size = new Size(528, 200);
-            AMCPersonalChallengesdgv.TabIndex = 14;
+            AMCPersonalChallengesdgv.ReadOnly = true;
+            AMCPersonalChallengesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMCPersonalChallengesdgv.RowHeadersVisible = false;
+            AMCPersonalChallengesdgv.RowHeadersWidth = 40;
+            AMCPersonalChallengesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(192, 255, 192);
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.ForeColor = Color.Green;
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.Green;
+            AMCPersonalChallengesdgv.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            AMCPersonalChallengesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AMCPersonalChallengesdgv.Size = new Size(528, 220);
+            AMCPersonalChallengesdgv.TabIndex = 10;
             // 
             // AMCCommunityChallengesdgv
             // 
+            AMCCommunityChallengesdgv.AllowUserToAddRows = false;
+            AMCCommunityChallengesdgv.AllowUserToDeleteRows = false;
+            AMCCommunityChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMCCommunityChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMCCommunityChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AMCCommunityChallengesdgv.Location = new Point(348, 92);
+            AMCCommunityChallengesdgv.BorderStyle = BorderStyle.None;
+            AMCCommunityChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMCCommunityChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AMCCommunityChallengesdgv.ColumnHeadersHeight = 50;
+            AMCCommunityChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            AMCCommunityChallengesdgv.DefaultCellStyle = dataGridViewCellStyle2;
+            AMCCommunityChallengesdgv.EnableHeadersVisualStyles = false;
+            AMCCommunityChallengesdgv.GridColor = Color.Green;
+            AMCCommunityChallengesdgv.Location = new Point(349, 78);
             AMCCommunityChallengesdgv.Margin = new Padding(0);
+            AMCCommunityChallengesdgv.MultiSelect = false;
             AMCCommunityChallengesdgv.Name = "AMCCommunityChallengesdgv";
-            AMCCommunityChallengesdgv.RowHeadersWidth = 51;
-            AMCCommunityChallengesdgv.Size = new Size(528, 200);
-            AMCCommunityChallengesdgv.TabIndex = 15;
+            AMCCommunityChallengesdgv.ReadOnly = true;
+            AMCCommunityChallengesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMCCommunityChallengesdgv.RowHeadersVisible = false;
+            AMCCommunityChallengesdgv.RowHeadersWidth = 40;
+            AMCCommunityChallengesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AMCCommunityChallengesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AMCCommunityChallengesdgv.Size = new Size(528, 220);
+            AMCCommunityChallengesdgv.TabIndex = 9;
+            // 
+            // AMCPointstbx
+            // 
+            AMCPointstbx.AccessibleDescription = "A customizable text input field.";
+            AMCPointstbx.AccessibleName = "Text Box";
+            AMCPointstbx.AccessibleRole = AccessibleRole.Text;
+            AMCPointstbx.BackColor = Color.Transparent;
+            AMCPointstbx.BlinkCount = 3;
+            AMCPointstbx.BlinkShadow = false;
+            AMCPointstbx.BorderColor1 = Color.Green;
+            AMCPointstbx.BorderColor2 = Color.Green;
+            AMCPointstbx.BorderFocusColor1 = Color.Green;
+            AMCPointstbx.BorderFocusColor2 = Color.Green;
+            AMCPointstbx.BorderSize = 2;
+            AMCPointstbx.CanShake = true;
+            AMCPointstbx.ContinuousBlink = false;
+            AMCPointstbx.CornerRadiusBottomLeft = 10;
+            AMCPointstbx.CornerRadiusBottomRight = 10;
+            AMCPointstbx.CornerRadiusTopLeft = 10;
+            AMCPointstbx.CornerRadiusTopRight = 10;
+            AMCPointstbx.CursorBlinkRate = 500;
+            AMCPointstbx.CursorColor = Color.Black;
+            AMCPointstbx.CursorHeight = 26;
+            AMCPointstbx.CursorOffset = 0;
+            AMCPointstbx.CursorStyle = SiticoneNetCoreUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+            AMCPointstbx.CursorWidth = 1;
+            AMCPointstbx.DisabledBackColor = Color.WhiteSmoke;
+            AMCPointstbx.DisabledBorderColor = Color.LightGray;
+            AMCPointstbx.DisabledTextColor = Color.Gray;
+            AMCPointstbx.EnableDropShadow = false;
+            AMCPointstbx.FillColor1 = Color.White;
+            AMCPointstbx.FillColor2 = Color.White;
+            AMCPointstbx.Font = new Font("Poppins Medium", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMCPointstbx.ForeColor = Color.FromArgb(0, 64, 0);
+            AMCPointstbx.HoverBorderColor1 = Color.Green;
+            AMCPointstbx.HoverBorderColor2 = Color.Green;
+            AMCPointstbx.IsEnabled = true;
+            AMCPointstbx.Location = new Point(2, 137);
+            AMCPointstbx.Margin = new Padding(0);
+            AMCPointstbx.Name = "AMCPointstbx";
+            AMCPointstbx.PlaceholderColor = Color.Gray;
+            AMCPointstbx.PlaceholderText = "Points";
+            AMCPointstbx.ReadOnlyBorderColor1 = Color.LightGray;
+            AMCPointstbx.ReadOnlyBorderColor2 = Color.LightGray;
+            AMCPointstbx.ReadOnlyFillColor1 = Color.WhiteSmoke;
+            AMCPointstbx.ReadOnlyFillColor2 = Color.WhiteSmoke;
+            AMCPointstbx.ReadOnlyPlaceholderColor = Color.DarkGray;
+            AMCPointstbx.SelectionBackColor = Color.FromArgb(77, 77, 255);
+            AMCPointstbx.ShadowAnimationDuration = 1;
+            AMCPointstbx.ShadowBlur = 10;
+            AMCPointstbx.ShadowColor = Color.FromArgb(15, 0, 0, 0);
+            AMCPointstbx.Size = new Size(300, 50);
+            AMCPointstbx.SolidBorderColor = Color.Green;
+            AMCPointstbx.SolidBorderFocusColor = Color.Green;
+            AMCPointstbx.SolidBorderHoverColor = Color.Green;
+            AMCPointstbx.SolidFillColor = Color.FromArgb(192, 255, 192);
+            AMCPointstbx.TabIndex = 2;
+            AMCPointstbx.TextPadding = new Padding(11, 2, 11, 2);
+            AMCPointstbx.ValidationErrorMessage = "Invalid input.";
+            AMCPointstbx.ValidationFunction = null;
             // 
             // AdminManageChallenges
             // 
@@ -561,5 +681,6 @@
         private Label AMCCommunitytxt;
         private DataGridView AMCPersonalChallengesdgv;
         private DataGridView AMCCommunityChallengesdgv;
+        private SiticoneNetCoreUI.SiticoneTextBox AMCPointstbx;
     }
 }

@@ -21,7 +21,7 @@ namespace EcoChallenge
             int nWidthEllipse, int nHeightEllipse);
         //Sidebar
         bool SidebarExpand = false;
-        int SidebarMaxHeight = 375;
+        int SidebarMaxHeight = 425;
         int SidebarMinHeight = 60;
 
         public AdminDashboardForm()

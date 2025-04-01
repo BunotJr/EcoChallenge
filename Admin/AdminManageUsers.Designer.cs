@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             AMUMainPanel = new Panel();
+            AMUActiveChallengestbx = new SiticoneNetCoreUI.SiticoneTextArea();
             AMUPointstbx = new SiticoneNetCoreUI.SiticoneTextBox();
             AMUUsernametbx = new SiticoneNetCoreUI.SiticoneTextBox();
             AMUUnbanbtn = new SiticoneNetCoreUI.SiticoneButton();
@@ -36,7 +38,6 @@
             AMUBanbtn = new SiticoneNetCoreUI.SiticoneButton();
             AMUUsersdgv = new DataGridView();
             AMUTitle = new Label();
-            AMUActiveChallengestbx = new SiticoneNetCoreUI.SiticoneTextArea();
             AMUMainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AMUUsersdgv).BeginInit();
             SuspendLayout();
@@ -55,6 +56,23 @@
             AMUMainPanel.Name = "AMUMainPanel";
             AMUMainPanel.Size = new Size(877, 554);
             AMUMainPanel.TabIndex = 5;
+            // 
+            // AMUActiveChallengestbx
+            // 
+            AMUActiveChallengestbx.BackColor = Color.FromArgb(192, 255, 192);
+            AMUActiveChallengestbx.BorderStyle = BorderStyle.None;
+            AMUActiveChallengestbx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AMUActiveChallengestbx.ForeColor = Color.FromArgb(0, 64, 0);
+            AMUActiveChallengestbx.Location = new Point(16, 198);
+            AMUActiveChallengestbx.Margin = new Padding(0);
+            AMUActiveChallengestbx.MinimumSize = new Size(100, 100);
+            AMUActiveChallengestbx.Multiline = true;
+            AMUActiveChallengestbx.Name = "AMUActiveChallengestbx";
+            AMUActiveChallengestbx.PlaceholderText = "Description...";
+            AMUActiveChallengestbx.ReadOnly = true;
+            AMUActiveChallengestbx.ScrollBars = ScrollBars.Vertical;
+            AMUActiveChallengestbx.Size = new Size(321, 130);
+            AMUActiveChallengestbx.TabIndex = 3;
             // 
             // AMUPointstbx
             // 
@@ -112,7 +130,7 @@
             AMUPointstbx.SolidBorderFocusColor = Color.Green;
             AMUPointstbx.SolidBorderHoverColor = Color.Green;
             AMUPointstbx.SolidFillColor = Color.FromArgb(192, 255, 192);
-            AMUPointstbx.TabIndex = 11;
+            AMUPointstbx.TabIndex = 2;
             AMUPointstbx.TextPadding = new Padding(11, 2, 11, 2);
             AMUPointstbx.ValidationErrorMessage = "Invalid input.";
             AMUPointstbx.ValidationFunction = null;
@@ -173,7 +191,7 @@
             AMUUsernametbx.SolidBorderFocusColor = Color.Green;
             AMUUsernametbx.SolidBorderHoverColor = Color.Green;
             AMUUsernametbx.SolidFillColor = Color.FromArgb(192, 255, 192);
-            AMUUsernametbx.TabIndex = 11;
+            AMUUsernametbx.TabIndex = 1;
             AMUUsernametbx.TextPadding = new Padding(11, 2, 11, 2);
             AMUUsernametbx.ValidationErrorMessage = "Invalid input.";
             AMUUsernametbx.ValidationFunction = null;
@@ -248,7 +266,7 @@
             AMUUnbanbtn.ShakeDuration = 500;
             AMUUnbanbtn.ShakeIntensity = 5;
             AMUUnbanbtn.Size = new Size(125, 55);
-            AMUUnbanbtn.TabIndex = 10;
+            AMUUnbanbtn.TabIndex = 6;
             AMUUnbanbtn.Text = "Unban";
             AMUUnbanbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMUUnbanbtn.TextColor = Color.White;
@@ -326,7 +344,7 @@
             AMURefreshbtn.ShakeDuration = 500;
             AMURefreshbtn.ShakeIntensity = 5;
             AMURefreshbtn.Size = new Size(125, 55);
-            AMURefreshbtn.TabIndex = 10;
+            AMURefreshbtn.TabIndex = 4;
             AMURefreshbtn.Text = "Refresh";
             AMURefreshbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMURefreshbtn.TextColor = Color.White;
@@ -404,7 +422,7 @@
             AMUBanbtn.ShakeDuration = 500;
             AMUBanbtn.ShakeIntensity = 5;
             AMUBanbtn.Size = new Size(125, 55);
-            AMUBanbtn.TabIndex = 10;
+            AMUBanbtn.TabIndex = 5;
             AMUBanbtn.Text = "Ban";
             AMUBanbtn.TextAlign = ContentAlignment.MiddleCenter;
             AMUBanbtn.TextColor = Color.White;
@@ -414,11 +432,44 @@
             // 
             // AMUUsersdgv
             // 
+            AMUUsersdgv.AllowUserToAddRows = false;
+            AMUUsersdgv.AllowUserToDeleteRows = false;
+            AMUUsersdgv.AllowUserToResizeColumns = false;
+            AMUUsersdgv.AllowUserToResizeRows = false;
+            AMUUsersdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMUUsersdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMUUsersdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AMUUsersdgv.BorderStyle = BorderStyle.None;
+            AMUUsersdgv.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
+            AMUUsersdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            AMUUsersdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AMUUsersdgv.ColumnHeadersHeight = 50;
+            AMUUsersdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            AMUUsersdgv.EnableHeadersVisualStyles = false;
+            AMUUsersdgv.GridColor = Color.Green;
             AMUUsersdgv.Location = new Point(349, 56);
+            AMUUsersdgv.Margin = new Padding(0);
+            AMUUsersdgv.MultiSelect = false;
             AMUUsersdgv.Name = "AMUUsersdgv";
-            AMUUsersdgv.RowHeadersWidth = 51;
+            AMUUsersdgv.ReadOnly = true;
+            AMUUsersdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMUUsersdgv.RowHeadersVisible = false;
+            AMUUsersdgv.RowHeadersWidth = 50;
+            AMUUsersdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(192, 255, 192);
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.ForeColor = Color.Green;
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.Green;
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            AMUUsersdgv.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            AMUUsersdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AMUUsersdgv.Size = new Size(528, 498);
             AMUUsersdgv.TabIndex = 6;
             // 
@@ -434,23 +485,6 @@
             AMUTitle.Size = new Size(241, 53);
             AMUTitle.TabIndex = 0;
             AMUTitle.Text = "Manage Users";
-            // 
-            // AMUActiveChallengestbx
-            // 
-            AMUActiveChallengestbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMUActiveChallengestbx.BorderStyle = BorderStyle.None;
-            AMUActiveChallengestbx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AMUActiveChallengestbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUActiveChallengestbx.Location = new Point(16, 198);
-            AMUActiveChallengestbx.Margin = new Padding(0);
-            AMUActiveChallengestbx.MinimumSize = new Size(100, 100);
-            AMUActiveChallengestbx.Multiline = true;
-            AMUActiveChallengestbx.Name = "AMUActiveChallengestbx";
-            AMUActiveChallengestbx.PlaceholderText = "Description...";
-            AMUActiveChallengestbx.ReadOnly = true;
-            AMUActiveChallengestbx.ScrollBars = ScrollBars.Vertical;
-            AMUActiveChallengestbx.Size = new Size(321, 130);
-            AMUActiveChallengestbx.TabIndex = 12;
             // 
             // AdminManageUsers
             // 

@@ -18,7 +18,7 @@ namespace EcoChallenge
     public partial class SigninForm : Form
     {
 
-        private string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EcoChallengeDatabase.accdb";
+        private string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EcoChallengeDatabase1.accdb";
 
         //Border radius
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
