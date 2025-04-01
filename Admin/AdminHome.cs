@@ -23,7 +23,6 @@ namespace EcoChallenge
         public AdminHome(AdminDashboardForm adminDashboardForm)
         {
             InitializeComponent();
-            //Border radius
             this.FormBorderStyle = FormBorderStyle.None;
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
