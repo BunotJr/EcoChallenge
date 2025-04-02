@@ -24,16 +24,19 @@ namespace EcoChallenge
         bool SidebarExpand = false;
         int SidebarMaxHeight = 375;
         int SidebarMinHeight = 60;
+        private int userId; // Added to store user ID
 
-        public UserDashboardForm()
+        public UserDashboardForm(int userId) // Modified constructor to accept user ID
         {
             InitializeComponent();
+            this.userId = userId; // Store the user ID
+
             //Border radius
             this.FormBorderStyle = FormBorderStyle.None;
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
-            // Load AdminHome on startup
-            loadform(new UserHome(this));
+            // Load UserHome on startup with user ID
+            loadform(new UserHome(this, userId));
 
             // Ensure the panel starts collapsed
             UDFSidePanel.Height = SidebarMinHeight;
@@ -65,6 +68,7 @@ namespace EcoChallenge
                 }
             }
         }
+
         public void loadform(object Form)
         {
             if (this.UDFMainPanel.Controls.Count > 0)
@@ -92,27 +96,27 @@ namespace EcoChallenge
 
         private void UDFHomebtn_Click(object sender, EventArgs e)
         {
-            loadform(new UserHome(this));
+            loadform(new UserHome(this, userId)); // Updated to pass user ID
         }
 
         private void UDFExploreChallengesbtn_Click(object sender, EventArgs e)
         {
-            loadform(new UserExploreChallenges(this));
+            loadform(new UserExploreChallenges(this, userId)); // Updated to pass user ID
         }
 
         private void UDFTrackProgressbtn_Click(object sender, EventArgs e)
         {
-            loadform(new UserTrackProgress(this));
+            loadform(new UserTrackProgress(this/*, userId*/)); // Updated to pass user ID
         }
 
         private void UDFRewardsBadgesbtn_Click(object sender, EventArgs e)
         {
-            loadform(new UserRewardsAndBadges(this));
+            loadform(new UserRewardsAndBadges(this/*, userId*/)); // Updated to pass user ID
         }
 
         private void UDFInformationbtn_Click(object sender, EventArgs e)
         {
-
+            // Can be updated later to pass user ID if needed
         }
 
         private void UDFSignoutbtn_Click(object sender, EventArgs e)
@@ -131,6 +135,11 @@ namespace EcoChallenge
                 SigninForm signIn = new SigninForm();
                 signIn.Show();
             }
+        }
+
+        internal void RefreshChallenges()
+        {
+            throw new NotImplementedException();
         }
     }
 }

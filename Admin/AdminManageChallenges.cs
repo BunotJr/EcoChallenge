@@ -75,6 +75,15 @@ namespace EcoChallenge
 
         private void AMCAddbtn_Click(object sender, EventArgs e)
         {
+            string category = AMCCategorybx.SelectedItem.ToString();
+            // Check if it's a personal challenge, if so, clear points
+            int pointsReward = 0;
+            if (category == "Community")
+            {
+                // Only insert points if it's a community challenge
+                pointsReward = Convert.ToInt32(AMCPointstbx.Text);
+            }
+
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 try
@@ -84,9 +93,9 @@ namespace EcoChallenge
                     using (OleDbCommand cmd = new OleDbCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("?", AMCTitletbx.Text.Trim());
-                        cmd.Parameters.AddWithValue("?", Convert.ToInt32(AMCPointstbx.Text));
+                        cmd.Parameters.AddWithValue("?", pointsReward);  // Only insert points for community
                         cmd.Parameters.AddWithValue("?", AMCDescriptiontbx.Text.Trim());
-                        cmd.Parameters.AddWithValue("?", AMCCategorybx.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("?", category);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Challenge added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -109,6 +118,15 @@ namespace EcoChallenge
                 return;
             }
 
+            string category = AMCCategorybx.SelectedItem.ToString();
+            // Check if it's a personal challenge, if so, clear points
+            int pointsReward = 0;
+            if (category == "Community")
+            {
+                // Only update points if it's a community challenge
+                pointsReward = Convert.ToInt32(AMCPointstbx.Text);
+            }
+
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 try
@@ -118,9 +136,9 @@ namespace EcoChallenge
                     using (OleDbCommand cmd = new OleDbCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("?", AMCTitletbx.Text.Trim());
-                        cmd.Parameters.AddWithValue("?", Convert.ToInt32(AMCPointstbx.Text));
+                        cmd.Parameters.AddWithValue("?", pointsReward);  // Only update points for community
                         cmd.Parameters.AddWithValue("?", AMCDescriptiontbx.Text.Trim());
-                        cmd.Parameters.AddWithValue("?", AMCCategorybx.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("?", category);
                         cmd.Parameters.AddWithValue("?", selectedChallengeID);
 
                         cmd.ExecuteNonQuery();
@@ -190,6 +208,17 @@ namespace EcoChallenge
             AMCPointstbx.Text = dgv.Rows[rowIndex].Cells["PointsReward"].Value.ToString();
             AMCDescriptiontbx.Text = dgv.Rows[rowIndex].Cells["Description"].Value.ToString();
             AMCCategorybx.SelectedItem = dgv.Rows[rowIndex].Cells["Category"].Value.ToString();
+
+            // Disable or clear points for personal challenges
+            if (AMCCategorybx.SelectedItem.ToString() == "Personal")
+            {
+                AMCPointstbx.Clear();
+                AMCPointstbx.Enabled = false;  // Disable points input for personal challenges
+            }
+            else
+            {
+                AMCPointstbx.Enabled = true;  // Enable points input for community challenges
+            }
         }
 
         private void ClearInputs()

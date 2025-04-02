@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             AMUMainPanel = new Panel();
             AMURefreshbtn = new SiticoneNetCoreUI.SiticoneButton();
             AMULeaderboardPanel = new SiticoneNetCoreUI.SiticonePanel();
@@ -40,23 +44,30 @@
             AMUFourthPlacelbl = new Label();
             AMUThirdPlacelbl = new Label();
             AMUSecondPlacelbl = new Label();
+            AMUFifthPlacePoints = new Label();
+            AMUFourthPlacePoints = new Label();
+            AMUThirdPlacePoints = new Label();
+            AMUSecondPlacePoints = new Label();
+            AMUFirstPlacePoints = new Label();
             AMUFirstPlacelbl = new Label();
             AMULeaderboardTitle = new Label();
-            AMUCompletedChallengesListbx = new ListBox();
-            AMUChallengeUpdatesListbx = new ListBox();
             AMUTitle = new Label();
             AMUCompletedChallengeslbl = new Label();
             AMUChallengeUpdateslbl = new Label();
+            AMUChallengeUpdatesdgv = new DataGridView();
+            AMUCompletedChallengesdgv = new DataGridView();
             AMUMainPanel.SuspendLayout();
             AMULeaderboardPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AMUChallengeUpdatesdgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AMUCompletedChallengesdgv).BeginInit();
             SuspendLayout();
             // 
             // AMUMainPanel
             // 
+            AMUMainPanel.Controls.Add(AMUCompletedChallengesdgv);
+            AMUMainPanel.Controls.Add(AMUChallengeUpdatesdgv);
             AMUMainPanel.Controls.Add(AMURefreshbtn);
             AMUMainPanel.Controls.Add(AMULeaderboardPanel);
-            AMUMainPanel.Controls.Add(AMUCompletedChallengesListbx);
-            AMUMainPanel.Controls.Add(AMUChallengeUpdatesListbx);
             AMUMainPanel.Controls.Add(AMUTitle);
             AMUMainPanel.Controls.Add(AMUCompletedChallengeslbl);
             AMUMainPanel.Controls.Add(AMUChallengeUpdateslbl);
@@ -162,6 +173,11 @@
             AMULeaderboardPanel.Controls.Add(AMUFourthPlacelbl);
             AMULeaderboardPanel.Controls.Add(AMUThirdPlacelbl);
             AMULeaderboardPanel.Controls.Add(AMUSecondPlacelbl);
+            AMULeaderboardPanel.Controls.Add(AMUFifthPlacePoints);
+            AMULeaderboardPanel.Controls.Add(AMUFourthPlacePoints);
+            AMULeaderboardPanel.Controls.Add(AMUThirdPlacePoints);
+            AMULeaderboardPanel.Controls.Add(AMUSecondPlacePoints);
+            AMULeaderboardPanel.Controls.Add(AMUFirstPlacePoints);
             AMULeaderboardPanel.Controls.Add(AMUFirstPlacelbl);
             AMULeaderboardPanel.Controls.Add(AMULeaderboardTitle);
             AMULeaderboardPanel.CornerRadiusBottomLeft = 10F;
@@ -209,7 +225,7 @@
             AMUFifthPlaceNumber.FlatStyle = FlatStyle.Flat;
             AMUFifthPlaceNumber.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUFifthPlaceNumber.ForeColor = Color.Green;
-            AMUFifthPlaceNumber.Location = new Point(13, 345);
+            AMUFifthPlaceNumber.Location = new Point(13, 410);
             AMUFifthPlaceNumber.Margin = new Padding(0);
             AMUFifthPlaceNumber.Name = "AMUFifthPlaceNumber";
             AMUFifthPlaceNumber.Size = new Size(50, 53);
@@ -223,7 +239,7 @@
             AMUFourthPlaceNumber.FlatStyle = FlatStyle.Flat;
             AMUFourthPlaceNumber.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUFourthPlaceNumber.ForeColor = Color.Green;
-            AMUFourthPlaceNumber.Location = new Point(13, 278);
+            AMUFourthPlaceNumber.Location = new Point(13, 327);
             AMUFourthPlaceNumber.Margin = new Padding(0);
             AMUFourthPlaceNumber.Name = "AMUFourthPlaceNumber";
             AMUFourthPlaceNumber.Size = new Size(51, 53);
@@ -237,7 +253,7 @@
             AMUThirdPlaceNumber.FlatStyle = FlatStyle.Flat;
             AMUThirdPlaceNumber.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUThirdPlaceNumber.ForeColor = Color.Green;
-            AMUThirdPlaceNumber.Location = new Point(13, 213);
+            AMUThirdPlaceNumber.Location = new Point(13, 244);
             AMUThirdPlaceNumber.Margin = new Padding(0);
             AMUThirdPlaceNumber.Name = "AMUThirdPlaceNumber";
             AMUThirdPlaceNumber.Size = new Size(49, 53);
@@ -251,7 +267,7 @@
             AMUSecondPlaceNumber.FlatStyle = FlatStyle.Flat;
             AMUSecondPlaceNumber.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUSecondPlaceNumber.ForeColor = Color.Green;
-            AMUSecondPlaceNumber.Location = new Point(13, 144);
+            AMUSecondPlaceNumber.Location = new Point(13, 161);
             AMUSecondPlaceNumber.Margin = new Padding(0);
             AMUSecondPlaceNumber.Name = "AMUSecondPlaceNumber";
             AMUSecondPlaceNumber.Size = new Size(48, 53);
@@ -279,7 +295,7 @@
             AMUFifthPlacelbl.FlatStyle = FlatStyle.Flat;
             AMUFifthPlacelbl.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUFifthPlacelbl.ForeColor = Color.Green;
-            AMUFifthPlacelbl.Location = new Point(55, 345);
+            AMUFifthPlacelbl.Location = new Point(55, 410);
             AMUFifthPlacelbl.Margin = new Padding(0);
             AMUFifthPlacelbl.Name = "AMUFifthPlacelbl";
             AMUFifthPlacelbl.Size = new Size(116, 53);
@@ -293,7 +309,7 @@
             AMUFourthPlacelbl.FlatStyle = FlatStyle.Flat;
             AMUFourthPlacelbl.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUFourthPlacelbl.ForeColor = Color.Green;
-            AMUFourthPlacelbl.Location = new Point(55, 278);
+            AMUFourthPlacelbl.Location = new Point(55, 327);
             AMUFourthPlacelbl.Margin = new Padding(0);
             AMUFourthPlacelbl.Name = "AMUFourthPlacelbl";
             AMUFourthPlacelbl.Size = new Size(116, 53);
@@ -307,7 +323,7 @@
             AMUThirdPlacelbl.FlatStyle = FlatStyle.Flat;
             AMUThirdPlacelbl.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUThirdPlacelbl.ForeColor = Color.Green;
-            AMUThirdPlacelbl.Location = new Point(55, 213);
+            AMUThirdPlacelbl.Location = new Point(55, 244);
             AMUThirdPlacelbl.Margin = new Padding(0);
             AMUThirdPlacelbl.Name = "AMUThirdPlacelbl";
             AMUThirdPlacelbl.Size = new Size(116, 53);
@@ -321,12 +337,82 @@
             AMUSecondPlacelbl.FlatStyle = FlatStyle.Flat;
             AMUSecondPlacelbl.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUSecondPlacelbl.ForeColor = Color.Green;
-            AMUSecondPlacelbl.Location = new Point(55, 144);
+            AMUSecondPlacelbl.Location = new Point(55, 161);
             AMUSecondPlacelbl.Margin = new Padding(0);
             AMUSecondPlacelbl.Name = "AMUSecondPlacelbl";
             AMUSecondPlacelbl.Size = new Size(116, 53);
             AMUSecondPlacelbl.TabIndex = 3;
             AMUSecondPlacelbl.Text = "Name";
+            // 
+            // AMUFifthPlacePoints
+            // 
+            AMUFifthPlacePoints.AutoSize = true;
+            AMUFifthPlacePoints.BackColor = Color.Transparent;
+            AMUFifthPlacePoints.FlatStyle = FlatStyle.Flat;
+            AMUFifthPlacePoints.Font = new Font("Poppins", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUFifthPlacePoints.ForeColor = Color.Green;
+            AMUFifthPlacePoints.Location = new Point(55, 463);
+            AMUFifthPlacePoints.Margin = new Padding(0);
+            AMUFifthPlacePoints.Name = "AMUFifthPlacePoints";
+            AMUFifthPlacePoints.Size = new Size(67, 30);
+            AMUFifthPlacePoints.TabIndex = 3;
+            AMUFifthPlacePoints.Text = "Points";
+            // 
+            // AMUFourthPlacePoints
+            // 
+            AMUFourthPlacePoints.AutoSize = true;
+            AMUFourthPlacePoints.BackColor = Color.Transparent;
+            AMUFourthPlacePoints.FlatStyle = FlatStyle.Flat;
+            AMUFourthPlacePoints.Font = new Font("Poppins", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUFourthPlacePoints.ForeColor = Color.Green;
+            AMUFourthPlacePoints.Location = new Point(55, 380);
+            AMUFourthPlacePoints.Margin = new Padding(0);
+            AMUFourthPlacePoints.Name = "AMUFourthPlacePoints";
+            AMUFourthPlacePoints.Size = new Size(67, 30);
+            AMUFourthPlacePoints.TabIndex = 3;
+            AMUFourthPlacePoints.Text = "Points";
+            // 
+            // AMUThirdPlacePoints
+            // 
+            AMUThirdPlacePoints.AutoSize = true;
+            AMUThirdPlacePoints.BackColor = Color.Transparent;
+            AMUThirdPlacePoints.FlatStyle = FlatStyle.Flat;
+            AMUThirdPlacePoints.Font = new Font("Poppins", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUThirdPlacePoints.ForeColor = Color.Green;
+            AMUThirdPlacePoints.Location = new Point(55, 297);
+            AMUThirdPlacePoints.Margin = new Padding(0);
+            AMUThirdPlacePoints.Name = "AMUThirdPlacePoints";
+            AMUThirdPlacePoints.Size = new Size(67, 30);
+            AMUThirdPlacePoints.TabIndex = 3;
+            AMUThirdPlacePoints.Text = "Points";
+            // 
+            // AMUSecondPlacePoints
+            // 
+            AMUSecondPlacePoints.AutoSize = true;
+            AMUSecondPlacePoints.BackColor = Color.Transparent;
+            AMUSecondPlacePoints.FlatStyle = FlatStyle.Flat;
+            AMUSecondPlacePoints.Font = new Font("Poppins", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUSecondPlacePoints.ForeColor = Color.Green;
+            AMUSecondPlacePoints.Location = new Point(55, 214);
+            AMUSecondPlacePoints.Margin = new Padding(0);
+            AMUSecondPlacePoints.Name = "AMUSecondPlacePoints";
+            AMUSecondPlacePoints.Size = new Size(67, 30);
+            AMUSecondPlacePoints.TabIndex = 3;
+            AMUSecondPlacePoints.Text = "Points";
+            // 
+            // AMUFirstPlacePoints
+            // 
+            AMUFirstPlacePoints.AutoSize = true;
+            AMUFirstPlacePoints.BackColor = Color.Transparent;
+            AMUFirstPlacePoints.FlatStyle = FlatStyle.Flat;
+            AMUFirstPlacePoints.Font = new Font("Poppins", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUFirstPlacePoints.ForeColor = Color.Green;
+            AMUFirstPlacePoints.Location = new Point(55, 131);
+            AMUFirstPlacePoints.Margin = new Padding(0);
+            AMUFirstPlacePoints.Name = "AMUFirstPlacePoints";
+            AMUFirstPlacePoints.Size = new Size(67, 30);
+            AMUFirstPlacePoints.TabIndex = 3;
+            AMUFirstPlacePoints.Text = "Points";
             // 
             // AMUFirstPlacelbl
             // 
@@ -355,36 +441,6 @@
             AMULeaderboardTitle.Size = new Size(218, 53);
             AMULeaderboardTitle.TabIndex = 3;
             AMULeaderboardTitle.Text = "Leaderboard";
-            // 
-            // AMUCompletedChallengesListbx
-            // 
-            AMUCompletedChallengesListbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMUCompletedChallengesListbx.BorderStyle = BorderStyle.FixedSingle;
-            AMUCompletedChallengesListbx.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUCompletedChallengesListbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUCompletedChallengesListbx.FormattingEnabled = true;
-            AMUCompletedChallengesListbx.HorizontalScrollbar = true;
-            AMUCompletedChallengesListbx.ItemHeight = 30;
-            AMUCompletedChallengesListbx.Location = new Point(15, 372);
-            AMUCompletedChallengesListbx.Margin = new Padding(0);
-            AMUCompletedChallengesListbx.Name = "AMUCompletedChallengesListbx";
-            AMUCompletedChallengesListbx.Size = new Size(587, 182);
-            AMUCompletedChallengesListbx.TabIndex = 7;
-            // 
-            // AMUChallengeUpdatesListbx
-            // 
-            AMUChallengeUpdatesListbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMUChallengeUpdatesListbx.BorderStyle = BorderStyle.FixedSingle;
-            AMUChallengeUpdatesListbx.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUChallengeUpdatesListbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUChallengeUpdatesListbx.FormattingEnabled = true;
-            AMUChallengeUpdatesListbx.HorizontalScrollbar = true;
-            AMUChallengeUpdatesListbx.ItemHeight = 30;
-            AMUChallengeUpdatesListbx.Location = new Point(15, 143);
-            AMUChallengeUpdatesListbx.Margin = new Padding(0);
-            AMUChallengeUpdatesListbx.Name = "AMUChallengeUpdatesListbx";
-            AMUChallengeUpdatesListbx.Size = new Size(587, 182);
-            AMUChallengeUpdatesListbx.TabIndex = 7;
             // 
             // AMUTitle
             // 
@@ -428,6 +484,86 @@
             AMUChallengeUpdateslbl.Text = "Challenge Updates";
             AMUChallengeUpdateslbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // AMUChallengeUpdatesdgv
+            // 
+            AMUChallengeUpdatesdgv.AllowUserToAddRows = false;
+            AMUChallengeUpdatesdgv.AllowUserToDeleteRows = false;
+            AMUChallengeUpdatesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AMUChallengeUpdatesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
+            AMUChallengeUpdatesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Green;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Green;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            AMUChallengeUpdatesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            AMUChallengeUpdatesdgv.ColumnHeadersHeight = 50;
+            AMUChallengeUpdatesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Green;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            AMUChallengeUpdatesdgv.DefaultCellStyle = dataGridViewCellStyle4;
+            AMUChallengeUpdatesdgv.EnableHeadersVisualStyles = false;
+            AMUChallengeUpdatesdgv.GridColor = Color.Green;
+            AMUChallengeUpdatesdgv.Location = new Point(15, 143);
+            AMUChallengeUpdatesdgv.Margin = new Padding(0);
+            AMUChallengeUpdatesdgv.MultiSelect = false;
+            AMUChallengeUpdatesdgv.Name = "AMUChallengeUpdatesdgv";
+            AMUChallengeUpdatesdgv.ReadOnly = true;
+            AMUChallengeUpdatesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMUChallengeUpdatesdgv.RowHeadersVisible = false;
+            AMUChallengeUpdatesdgv.RowHeadersWidth = 40;
+            AMUChallengeUpdatesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AMUChallengeUpdatesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AMUChallengeUpdatesdgv.Size = new Size(587, 182);
+            AMUChallengeUpdatesdgv.TabIndex = 17;
+            // 
+            // AMUCompletedChallengesdgv
+            // 
+            AMUCompletedChallengesdgv.AllowUserToAddRows = false;
+            AMUCompletedChallengesdgv.AllowUserToDeleteRows = false;
+            AMUCompletedChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AMUCompletedChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
+            AMUCompletedChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Green;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            AMUCompletedChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AMUCompletedChallengesdgv.ColumnHeadersHeight = 50;
+            AMUCompletedChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            AMUCompletedChallengesdgv.DefaultCellStyle = dataGridViewCellStyle2;
+            AMUCompletedChallengesdgv.EnableHeadersVisualStyles = false;
+            AMUCompletedChallengesdgv.GridColor = Color.Green;
+            AMUCompletedChallengesdgv.Location = new Point(15, 372);
+            AMUCompletedChallengesdgv.Margin = new Padding(0);
+            AMUCompletedChallengesdgv.MultiSelect = false;
+            AMUCompletedChallengesdgv.Name = "AMUCompletedChallengesdgv";
+            AMUCompletedChallengesdgv.ReadOnly = true;
+            AMUCompletedChallengesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            AMUCompletedChallengesdgv.RowHeadersVisible = false;
+            AMUCompletedChallengesdgv.RowHeadersWidth = 40;
+            AMUCompletedChallengesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AMUCompletedChallengesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AMUCompletedChallengesdgv.Size = new Size(587, 182);
+            AMUCompletedChallengesdgv.TabIndex = 17;
+            // 
             // AdminMonitorUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -442,14 +578,14 @@
             AMUMainPanel.PerformLayout();
             AMULeaderboardPanel.ResumeLayout(false);
             AMULeaderboardPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AMUChallengeUpdatesdgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AMUCompletedChallengesdgv).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel AMUMainPanel;
-        private ListBox AMUCompletedChallengesListbx;
-        private ListBox AMUChallengeUpdatesListbx;
         private Label AMUTitle;
         private Label AMUCompletedChallengeslbl;
         private Label AMUChallengeUpdateslbl;
@@ -466,5 +602,12 @@
         private Label AMUFirstPlacelbl;
         private Label AMULeaderboardTitle;
         private SiticoneNetCoreUI.SiticoneButton AMURefreshbtn;
+        private Label AMUFifthPlacePoints;
+        private Label AMUFourthPlacePoints;
+        private Label AMUThirdPlacePoints;
+        private Label AMUSecondPlacePoints;
+        private Label AMUFirstPlacePoints;
+        private DataGridView AMUCompletedChallengesdgv;
+        private DataGridView AMUChallengeUpdatesdgv;
     }
 }

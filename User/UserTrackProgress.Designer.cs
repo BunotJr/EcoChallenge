@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             UTPMainPanel = new Panel();
             UTPProgressBar = new SiticoneNetCoreUI.SiticoneHProgressBar();
             UTPProgrestxt = new Label();
@@ -36,16 +40,18 @@
             UTPTitletbx = new SiticoneNetCoreUI.SiticoneTextBox();
             UTPCompletebtn = new SiticoneNetCoreUI.SiticoneButton();
             UTPSubmitbtn = new SiticoneNetCoreUI.SiticoneButton();
-            UTPPersonalChallengesdgv = new DataGridView();
-            UTPCommunityChallengesdgv = new DataGridView();
             UTPTitle = new Label();
+            UTPCommunityChallengesdgv = new DataGridView();
+            UTPPersonalChallengesdgv = new DataGridView();
             UTPMainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)UTPPersonalChallengesdgv).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UTPCommunityChallengesdgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UTPPersonalChallengesdgv).BeginInit();
             SuspendLayout();
             // 
             // UTPMainPanel
             // 
+            UTPMainPanel.Controls.Add(UTPPersonalChallengesdgv);
+            UTPMainPanel.Controls.Add(UTPCommunityChallengesdgv);
             UTPMainPanel.Controls.Add(UTPProgressBar);
             UTPMainPanel.Controls.Add(UTPProgrestxt);
             UTPMainPanel.Controls.Add(UTPPersonaltxt);
@@ -53,8 +59,6 @@
             UTPMainPanel.Controls.Add(UTPTitletbx);
             UTPMainPanel.Controls.Add(UTPCompletebtn);
             UTPMainPanel.Controls.Add(UTPSubmitbtn);
-            UTPMainPanel.Controls.Add(UTPPersonalChallengesdgv);
-            UTPMainPanel.Controls.Add(UTPCommunityChallengesdgv);
             UTPMainPanel.Controls.Add(UTPTitle);
             UTPMainPanel.Location = new Point(22, 20);
             UTPMainPanel.Margin = new Padding(0);
@@ -365,28 +369,6 @@
             UTPSubmitbtn.UseAdvancedRendering = true;
             UTPSubmitbtn.UseParticles = false;
             // 
-            // UTPPersonalChallengesdgv
-            // 
-            UTPPersonalChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            UTPPersonalChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UTPPersonalChallengesdgv.Location = new Point(349, 336);
-            UTPPersonalChallengesdgv.Margin = new Padding(0);
-            UTPPersonalChallengesdgv.Name = "UTPPersonalChallengesdgv";
-            UTPPersonalChallengesdgv.RowHeadersWidth = 51;
-            UTPPersonalChallengesdgv.Size = new Size(528, 200);
-            UTPPersonalChallengesdgv.TabIndex = 6;
-            // 
-            // UTPCommunityChallengesdgv
-            // 
-            UTPCommunityChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            UTPCommunityChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UTPCommunityChallengesdgv.Location = new Point(349, 92);
-            UTPCommunityChallengesdgv.Margin = new Padding(0);
-            UTPCommunityChallengesdgv.Name = "UTPCommunityChallengesdgv";
-            UTPCommunityChallengesdgv.RowHeadersWidth = 51;
-            UTPCommunityChallengesdgv.Size = new Size(528, 200);
-            UTPCommunityChallengesdgv.TabIndex = 6;
-            // 
             // UTPTitle
             // 
             UTPTitle.AutoSize = true;
@@ -400,6 +382,86 @@
             UTPTitle.TabIndex = 0;
             UTPTitle.Text = "Track Progress";
             // 
+            // UTPCommunityChallengesdgv
+            // 
+            UTPCommunityChallengesdgv.AllowUserToAddRows = false;
+            UTPCommunityChallengesdgv.AllowUserToDeleteRows = false;
+            UTPCommunityChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            UTPCommunityChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
+            UTPCommunityChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Green;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Green;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            UTPCommunityChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            UTPCommunityChallengesdgv.ColumnHeadersHeight = 50;
+            UTPCommunityChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Green;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            UTPCommunityChallengesdgv.DefaultCellStyle = dataGridViewCellStyle4;
+            UTPCommunityChallengesdgv.EnableHeadersVisualStyles = false;
+            UTPCommunityChallengesdgv.GridColor = Color.Green;
+            UTPCommunityChallengesdgv.Location = new Point(349, 92);
+            UTPCommunityChallengesdgv.Margin = new Padding(0);
+            UTPCommunityChallengesdgv.MultiSelect = false;
+            UTPCommunityChallengesdgv.Name = "UTPCommunityChallengesdgv";
+            UTPCommunityChallengesdgv.ReadOnly = true;
+            UTPCommunityChallengesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            UTPCommunityChallengesdgv.RowHeadersVisible = false;
+            UTPCommunityChallengesdgv.RowHeadersWidth = 40;
+            UTPCommunityChallengesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            UTPCommunityChallengesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            UTPCommunityChallengesdgv.Size = new Size(528, 200);
+            UTPCommunityChallengesdgv.TabIndex = 16;
+            // 
+            // UTPPersonalChallengesdgv
+            // 
+            UTPPersonalChallengesdgv.AllowUserToAddRows = false;
+            UTPPersonalChallengesdgv.AllowUserToDeleteRows = false;
+            UTPPersonalChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            UTPPersonalChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
+            UTPPersonalChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Green;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            UTPPersonalChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            UTPPersonalChallengesdgv.ColumnHeadersHeight = 50;
+            UTPPersonalChallengesdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            UTPPersonalChallengesdgv.DefaultCellStyle = dataGridViewCellStyle2;
+            UTPPersonalChallengesdgv.EnableHeadersVisualStyles = false;
+            UTPPersonalChallengesdgv.GridColor = Color.Green;
+            UTPPersonalChallengesdgv.Location = new Point(349, 336);
+            UTPPersonalChallengesdgv.Margin = new Padding(0);
+            UTPPersonalChallengesdgv.MultiSelect = false;
+            UTPPersonalChallengesdgv.Name = "UTPPersonalChallengesdgv";
+            UTPPersonalChallengesdgv.ReadOnly = true;
+            UTPPersonalChallengesdgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            UTPPersonalChallengesdgv.RowHeadersVisible = false;
+            UTPPersonalChallengesdgv.RowHeadersWidth = 40;
+            UTPPersonalChallengesdgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            UTPPersonalChallengesdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            UTPPersonalChallengesdgv.Size = new Size(528, 200);
+            UTPPersonalChallengesdgv.TabIndex = 17;
+            // 
             // UserTrackProgress
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -412,8 +474,8 @@
             Text = "UserTrackProgress";
             UTPMainPanel.ResumeLayout(false);
             UTPMainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)UTPPersonalChallengesdgv).EndInit();
             ((System.ComponentModel.ISupportInitialize)UTPCommunityChallengesdgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UTPPersonalChallengesdgv).EndInit();
             ResumeLayout(false);
         }
 
@@ -424,11 +486,11 @@
         private Label UTPCommunitytxt;
         private SiticoneNetCoreUI.SiticoneTextBox UTPTitletbx;
         private SiticoneNetCoreUI.SiticoneButton UTPSubmitbtn;
-        private DataGridView UTPPersonalChallengesdgv;
-        private DataGridView UTPCommunityChallengesdgv;
         private Label UTPTitle;
         private SiticoneNetCoreUI.SiticoneHProgressBar UTPProgressBar;
         private Label UTPProgrestxt;
         private SiticoneNetCoreUI.SiticoneButton UTPCompletebtn;
+        private DataGridView UTPCommunityChallengesdgv;
+        private DataGridView UTPPersonalChallengesdgv;
     }
 }

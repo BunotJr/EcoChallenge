@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -12,12 +13,11 @@ namespace EcoChallenge.Admin
 
         // Border radius
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
-            int nWidthEllipse, int nHeightEllipse);
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+                                                        int nWidthEllipse, int nHeightEllipse);
 
         AdminDashboardForm adminDashboardForm;
-        private int selectedUserID;
+        private int selectedUserID = -1;
 
         public AdminMonitorUsers(AdminDashboardForm adminDashboardForm)
         {
@@ -27,115 +27,108 @@ namespace EcoChallenge.Admin
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             this.adminDashboardForm = adminDashboardForm;
+
+            LoadLeaderboard();
         }
 
-        // Load the user's current and completed challenges, along with the leaderboard
-        private void LoadUserDetails(int userID)
+        private void LoadLeaderboard()
         {
-            using (OleDbConnection conn = new OleDbConnection(connString))
+            try
             {
-                try
+                using (OleDbConnection conn = new OleDbConnection(connString))
                 {
                     conn.Open();
 
-                    // Load Current Challenges (Joined)
-                    string queryCurrentChallenges = @"
-                        SELECT ChallengesTable.Title
-                        FROM ChallengesTable
-                        INNER JOIN UserChallengesTable ON ChallengesTable.ChallengeID = UserChallengesTable.ChallengeID
-                        WHERE UserChallengesTable.UserID = ? AND UserChallengesTable.Status = 'Active'";
+                    string query = @"SELECT TOP 5 u.UserID, u.Username, u.Points, u.Barangay
+                                     FROM UserTable u
+                                     ORDER BY u.Points DESC, u.UserID ASC";
 
-                    using (OleDbCommand cmd = new OleDbCommand(queryCurrentChallenges, conn))
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("?", userID);
-                        OleDbDataReader reader = cmd.ExecuteReader();
+                        Label[] nameLabels = { AMUFirstPlacelbl, AMUSecondPlacelbl, AMUThirdPlacelbl, AMUFourthPlacelbl, AMUFifthPlacelbl };
+                        Label[] pointsLabels = { AMUFirstPlacePoints, AMUSecondPlacePoints, AMUThirdPlacePoints, AMUFourthPlacePoints, AMUFifthPlacePoints };
 
-                        AMUChallengeUpdatesListbx.Items.Clear();
-                        while (reader.Read())
+                        for (int i = 0; i < 5; i++)
                         {
-                            AMUChallengeUpdatesListbx.Items.Add(reader["Title"].ToString());
-                        }
-                    }
-
-                    // Load Completed Challenges
-                    string queryCompletedChallenges = @"
-                        SELECT ChallengesTable.Title
-                        FROM ChallengesTable
-                        INNER JOIN UserChallengesTable ON ChallengesTable.ChallengeID = UserChallengesTable.ChallengeID
-                        WHERE UserChallengesTable.UserID = ? AND UserChallengesTable.Status = 'Completed'";
-
-                    using (OleDbCommand cmd = new OleDbCommand(queryCompletedChallenges, conn))
-                    {
-                        cmd.Parameters.AddWithValue("?", userID);
-                        OleDbDataReader reader = cmd.ExecuteReader();
-
-                        AMUCompletedChallengesListbx.Items.Clear();
-                        while (reader.Read())
-                        {
-                            AMUCompletedChallengesListbx.Items.Add(reader["Title"].ToString());
-                        }
-                    }
-
-                    // Load Leaderboard (Top 5 users)
-                    string queryLeaderboard = @"
-                        SELECT UserTable.Username, UserTable.Points
-                        FROM UserTable
-                        ORDER BY UserTable.Points DESC, UserTable.UserID"; // Sorting by Points and UserID
-
-                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(queryLeaderboard, conn))
-                    {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        // Clear previous leaderboard labels
-                        AMUFirstPlacelbl.Text = "";
-                        AMUSecondPlacelbl.Text = "";
-                        AMUThirdPlacelbl.Text = "";
-                        AMUFourthPlacelbl.Text = "";
-                        AMUFifthPlacelbl.Text = "";
-
-                        // Set the leaderboard labels
-                        if (dt.Rows.Count > 0) AMUFirstPlacelbl.Text = $"{dt.Rows[0]["Username"]} - {dt.Rows[0]["Points"]} points";
-                        if (dt.Rows.Count > 1) AMUSecondPlacelbl.Text = $"{dt.Rows[1]["Username"]} - {dt.Rows[1]["Points"]} points";
-                        if (dt.Rows.Count > 2) AMUThirdPlacelbl.Text = $"{dt.Rows[2]["Username"]} - {dt.Rows[2]["Points"]} points";
-                        if (dt.Rows.Count > 3) AMUFourthPlacelbl.Text = $"{dt.Rows[3]["Username"]} - {dt.Rows[3]["Points"]} points";
-                        if (dt.Rows.Count > 4) AMUFifthPlacelbl.Text = $"{dt.Rows[4]["Username"]} - {dt.Rows[4]["Points"]} points";
-
-                        // Add empty labels if there are fewer than 5 users
-                        for (int i = dt.Rows.Count; i < 5; i++)
-                        {
-                            switch (i)
+                            if (reader.Read())
                             {
-                                case 0:
-                                    AMUFirstPlacelbl.Text = "N/A";
-                                    break;
-                                case 1:
-                                    AMUSecondPlacelbl.Text = "N/A";
-                                    break;
-                                case 2:
-                                    AMUThirdPlacelbl.Text = "N/A";
-                                    break;
-                                case 3:
-                                    AMUFourthPlacelbl.Text = "N/A";
-                                    break;
-                                case 4:
-                                    AMUFifthPlacelbl.Text = "N/A";
-                                    break;
+                                nameLabels[i].Text = reader["Username"].ToString();
+                                pointsLabels[i].Text = $"{reader["Points"]} pts";
+
+                                if (i < 3) // Highlight top 3
+                                {
+                                    nameLabels[i].ForeColor = Color.Goldenrod;
+                                    pointsLabels[i].ForeColor = Color.Goldenrod;
+                                }
+                            }
+                            else
+                            {
+                                nameLabels[i].Text = "N/A";
+                                pointsLabels[i].Text = "0 pts";
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading user details: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading leaderboard: {ex.Message}", "Leaderboard Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Refresh button to reload the user details and leaderboard
+        private void LoadUserChallenges(int userId)
+        {
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+
+                    // Load Ongoing Challenges
+                    string queryOngoing = @"SELECT c.Title 
+                                            FROM ChallengesTable c
+                                            INNER JOIN UserChallengesTable uc ON c.ChallengeID = uc.ChallengeID
+                                            WHERE uc.UserID = ? AND uc.Status = 'Ongoing'";
+
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(queryOngoing, conn))
+                    {
+                        adapter.SelectCommand.Parameters.AddWithValue("?", userId);
+                        DataTable dtOngoing = new DataTable();
+                        adapter.Fill(dtOngoing);
+                        AMUChallengeUpdatesdgv.DataSource = dtOngoing;
+                    }
+
+                    // Load Completed Challenges
+                    string queryCompleted = @"SELECT c.Title 
+                                              FROM ChallengesTable c
+                                              INNER JOIN UserChallengesTable uc ON c.ChallengeID = uc.ChallengeID
+                                              WHERE uc.UserID = ? AND uc.Status = 'Completed'";
+
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(queryCompleted, conn))
+                    {
+                        adapter.SelectCommand.Parameters.AddWithValue("?", userId);
+                        DataTable dtCompleted = new DataTable();
+                        adapter.Fill(dtCompleted);
+                        AMUCompletedChallengesdgv.DataSource = dtCompleted;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading user challenges: {ex.Message}", "Challenges Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadUserDetails(int userID)
+        {
+            selectedUserID = userID;
+            LoadUserChallenges(userID);
+        }
+
+        // Refresh button to reload user details and leaderboard
         private void AMURefreshbtn_Click(object sender, EventArgs e)
         {
-            // Assuming the selectedUserID is already set when a user is clicked in a DataGridView or similar control
             if (selectedUserID != -1)
             {
                 LoadUserDetails(selectedUserID);
