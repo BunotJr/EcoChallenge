@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             AMUMainPanel = new Panel();
-            AMUTitle = new Label();
-            AMUChallengeUpdatesListbx = new ListBox();
-            AMUChallengeUpdateslbl = new Label();
-            AMUCompletedChallengeslbl = new Label();
-            AMUCompletedChallengestxt = new ListBox();
+            AMURefreshbtn = new SiticoneNetCoreUI.SiticoneButton();
             AMULeaderboardPanel = new SiticoneNetCoreUI.SiticonePanel();
             AMUFifthPlaceNumber = new Label();
             AMUFourthPlaceNumber = new Label();
@@ -46,18 +42,20 @@
             AMUSecondPlacelbl = new Label();
             AMUFirstPlacelbl = new Label();
             AMULeaderboardTitle = new Label();
-            AMURedeembtn = new SiticoneNetCoreUI.SiticoneButton();
-            AMUPointstbx = new SiticoneNetCoreUI.SiticoneTextBox();
+            AMUCompletedChallengesListbx = new ListBox();
+            AMUChallengeUpdatesListbx = new ListBox();
+            AMUTitle = new Label();
+            AMUCompletedChallengeslbl = new Label();
+            AMUChallengeUpdateslbl = new Label();
             AMUMainPanel.SuspendLayout();
             AMULeaderboardPanel.SuspendLayout();
             SuspendLayout();
             // 
             // AMUMainPanel
             // 
-            AMUMainPanel.Controls.Add(AMUPointstbx);
-            AMUMainPanel.Controls.Add(AMURedeembtn);
+            AMUMainPanel.Controls.Add(AMURefreshbtn);
             AMUMainPanel.Controls.Add(AMULeaderboardPanel);
-            AMUMainPanel.Controls.Add(AMUCompletedChallengestxt);
+            AMUMainPanel.Controls.Add(AMUCompletedChallengesListbx);
             AMUMainPanel.Controls.Add(AMUChallengeUpdatesListbx);
             AMUMainPanel.Controls.Add(AMUTitle);
             AMUMainPanel.Controls.Add(AMUCompletedChallengeslbl);
@@ -67,77 +65,83 @@
             AMUMainPanel.Size = new Size(877, 554);
             AMUMainPanel.TabIndex = 4;
             // 
-            // AMUTitle
+            // AMURefreshbtn
             // 
-            AMUTitle.AutoSize = true;
-            AMUTitle.BackColor = Color.Transparent;
-            AMUTitle.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUTitle.ForeColor = Color.Green;
-            AMUTitle.Location = new Point(2, 0);
-            AMUTitle.Margin = new Padding(0);
-            AMUTitle.Name = "AMUTitle";
-            AMUTitle.Size = new Size(235, 53);
-            AMUTitle.TabIndex = 0;
-            AMUTitle.Text = "Monitor Users";
-            AMUTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // AMUChallengeUpdatesListbx
-            // 
-            AMUChallengeUpdatesListbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMUChallengeUpdatesListbx.BorderStyle = BorderStyle.FixedSingle;
-            AMUChallengeUpdatesListbx.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUChallengeUpdatesListbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUChallengeUpdatesListbx.FormattingEnabled = true;
-            AMUChallengeUpdatesListbx.HorizontalScrollbar = true;
-            AMUChallengeUpdatesListbx.ItemHeight = 30;
-            AMUChallengeUpdatesListbx.Location = new Point(15, 89);
-            AMUChallengeUpdatesListbx.Margin = new Padding(0);
-            AMUChallengeUpdatesListbx.Name = "AMUChallengeUpdatesListbx";
-            AMUChallengeUpdatesListbx.Size = new Size(587, 122);
-            AMUChallengeUpdatesListbx.TabIndex = 7;
-            // 
-            // AMUChallengeUpdateslbl
-            // 
-            AMUChallengeUpdateslbl.AutoSize = true;
-            AMUChallengeUpdateslbl.BackColor = Color.Transparent;
-            AMUChallengeUpdateslbl.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUChallengeUpdateslbl.ForeColor = Color.Green;
-            AMUChallengeUpdateslbl.Location = new Point(15, 53);
-            AMUChallengeUpdateslbl.Margin = new Padding(0);
-            AMUChallengeUpdateslbl.Name = "AMUChallengeUpdateslbl";
-            AMUChallengeUpdateslbl.Size = new Size(211, 36);
-            AMUChallengeUpdateslbl.TabIndex = 0;
-            AMUChallengeUpdateslbl.Text = "Challenge Updates";
-            AMUChallengeUpdateslbl.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // AMUCompletedChallengeslbl
-            // 
-            AMUCompletedChallengeslbl.AutoSize = true;
-            AMUCompletedChallengeslbl.BackColor = Color.Transparent;
-            AMUCompletedChallengeslbl.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUCompletedChallengeslbl.ForeColor = Color.Green;
-            AMUCompletedChallengeslbl.Location = new Point(15, 230);
-            AMUCompletedChallengeslbl.Margin = new Padding(0);
-            AMUCompletedChallengeslbl.Name = "AMUCompletedChallengeslbl";
-            AMUCompletedChallengeslbl.Size = new Size(211, 36);
-            AMUCompletedChallengeslbl.TabIndex = 0;
-            AMUCompletedChallengeslbl.Text = "Challenge Updates";
-            AMUCompletedChallengeslbl.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // AMUCompletedChallengestxt
-            // 
-            AMUCompletedChallengestxt.BackColor = Color.FromArgb(192, 255, 192);
-            AMUCompletedChallengestxt.BorderStyle = BorderStyle.FixedSingle;
-            AMUCompletedChallengestxt.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUCompletedChallengestxt.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUCompletedChallengestxt.FormattingEnabled = true;
-            AMUCompletedChallengestxt.HorizontalScrollbar = true;
-            AMUCompletedChallengestxt.ItemHeight = 30;
-            AMUCompletedChallengestxt.Location = new Point(15, 266);
-            AMUCompletedChallengestxt.Margin = new Padding(0);
-            AMUCompletedChallengestxt.Name = "AMUCompletedChallengestxt";
-            AMUCompletedChallengestxt.Size = new Size(587, 122);
-            AMUCompletedChallengestxt.TabIndex = 7;
+            AMURefreshbtn.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard";
+            AMURefreshbtn.AccessibleName = "Refresh";
+            AMURefreshbtn.AutoSizeBasedOnText = false;
+            AMURefreshbtn.BackColor = Color.Transparent;
+            AMURefreshbtn.BadgeBackColor = Color.Red;
+            AMURefreshbtn.BadgeFont = new Font("Segoe UI", 8F, FontStyle.Bold);
+            AMURefreshbtn.BadgeValue = 0;
+            AMURefreshbtn.BadgeValueForeColor = Color.White;
+            AMURefreshbtn.BorderColor = Color.Transparent;
+            AMURefreshbtn.BorderWidth = 2;
+            AMURefreshbtn.ButtonBackColor = Color.Green;
+            AMURefreshbtn.ButtonImage = null;
+            AMURefreshbtn.CanBeep = true;
+            AMURefreshbtn.CanGlow = false;
+            AMURefreshbtn.CanShake = true;
+            AMURefreshbtn.ContextMenuStripEx = null;
+            AMURefreshbtn.CornerRadiusBottomLeft = 25;
+            AMURefreshbtn.CornerRadiusBottomRight = 25;
+            AMURefreshbtn.CornerRadiusTopLeft = 25;
+            AMURefreshbtn.CornerRadiusTopRight = 25;
+            AMURefreshbtn.CustomCursor = Cursors.Default;
+            AMURefreshbtn.DisabledTextColor = Color.Gray;
+            AMURefreshbtn.EnableLongPress = false;
+            AMURefreshbtn.EnablePressAnimation = true;
+            AMURefreshbtn.EnableRippleEffect = true;
+            AMURefreshbtn.EnableShadow = false;
+            AMURefreshbtn.EnableTextWrapping = false;
+            AMURefreshbtn.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMURefreshbtn.ForeColor = Color.White;
+            AMURefreshbtn.GlowColor = Color.FromArgb(100, 255, 255, 255);
+            AMURefreshbtn.GlowIntensity = 100;
+            AMURefreshbtn.GlowRadius = 20F;
+            AMURefreshbtn.GradientBackground = false;
+            AMURefreshbtn.GradientColor = Color.FromArgb(114, 168, 255);
+            AMURefreshbtn.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            AMURefreshbtn.HintText = null;
+            AMURefreshbtn.HoverBackColor = Color.SeaGreen;
+            AMURefreshbtn.HoverFontStyle = FontStyle.Regular;
+            AMURefreshbtn.HoverTextColor = Color.White;
+            AMURefreshbtn.HoverTransitionDuration = 250;
+            AMURefreshbtn.ImageAlign = ContentAlignment.MiddleLeft;
+            AMURefreshbtn.ImagePadding = 5;
+            AMURefreshbtn.ImageSize = new Size(16, 16);
+            AMURefreshbtn.IsRadial = true;
+            AMURefreshbtn.IsReadOnly = false;
+            AMURefreshbtn.IsToggleButton = false;
+            AMURefreshbtn.IsToggled = false;
+            AMURefreshbtn.Location = new Point(0, 52);
+            AMURefreshbtn.LongPressDurationMS = 1000;
+            AMURefreshbtn.Margin = new Padding(0);
+            AMURefreshbtn.Name = "AMURefreshbtn";
+            AMURefreshbtn.NormalFontStyle = FontStyle.Regular;
+            AMURefreshbtn.ParticleColor = Color.FromArgb(200, 200, 200);
+            AMURefreshbtn.ParticleCount = 15;
+            AMURefreshbtn.PressAnimationScale = 0.97F;
+            AMURefreshbtn.PressedBackColor = Color.LightGreen;
+            AMURefreshbtn.PressedFontStyle = FontStyle.Regular;
+            AMURefreshbtn.PressTransitionDuration = 150;
+            AMURefreshbtn.ReadOnlyTextColor = Color.White;
+            AMURefreshbtn.RippleColor = Color.FromArgb(255, 255, 255);
+            AMURefreshbtn.RippleOpacity = 0.3F;
+            AMURefreshbtn.RippleRadiusMultiplier = 0.6F;
+            AMURefreshbtn.ShadowBlur = 5;
+            AMURefreshbtn.ShadowColor = Color.FromArgb(100, 0, 0, 0);
+            AMURefreshbtn.ShadowOffset = new Point(2, 2);
+            AMURefreshbtn.ShakeDuration = 500;
+            AMURefreshbtn.ShakeIntensity = 5;
+            AMURefreshbtn.Size = new Size(125, 55);
+            AMURefreshbtn.TabIndex = 14;
+            AMURefreshbtn.Text = "Refresh";
+            AMURefreshbtn.TextAlign = ContentAlignment.MiddleCenter;
+            AMURefreshbtn.TextColor = Color.White;
+            AMURefreshbtn.TooltipText = null;
+            AMURefreshbtn.UseAdvancedRendering = true;
+            AMURefreshbtn.UseParticles = false;
             // 
             // AMULeaderboardPanel
             // 
@@ -205,7 +209,7 @@
             AMUFifthPlaceNumber.FlatStyle = FlatStyle.Flat;
             AMUFifthPlaceNumber.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AMUFifthPlaceNumber.ForeColor = Color.Green;
-            AMUFifthPlaceNumber.Location = new Point(5, 345);
+            AMUFifthPlaceNumber.Location = new Point(13, 345);
             AMUFifthPlaceNumber.Margin = new Padding(0);
             AMUFifthPlaceNumber.Name = "AMUFifthPlaceNumber";
             AMUFifthPlaceNumber.Size = new Size(50, 53);
@@ -352,143 +356,77 @@
             AMULeaderboardTitle.TabIndex = 3;
             AMULeaderboardTitle.Text = "Leaderboard";
             // 
-            // AMURedeembtn
+            // AMUCompletedChallengesListbx
             // 
-            AMURedeembtn.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard";
-            AMURedeembtn.AccessibleName = "Point";
-            AMURedeembtn.AutoSizeBasedOnText = false;
-            AMURedeembtn.BackColor = Color.Transparent;
-            AMURedeembtn.BadgeBackColor = Color.Red;
-            AMURedeembtn.BadgeFont = new Font("Segoe UI", 8F, FontStyle.Bold);
-            AMURedeembtn.BadgeValue = 0;
-            AMURedeembtn.BadgeValueForeColor = Color.Transparent;
-            AMURedeembtn.BorderColor = Color.Transparent;
-            AMURedeembtn.BorderWidth = 2;
-            AMURedeembtn.ButtonBackColor = Color.Green;
-            AMURedeembtn.ButtonImage = null;
-            AMURedeembtn.CanBeep = true;
-            AMURedeembtn.CanGlow = false;
-            AMURedeembtn.CanShake = true;
-            AMURedeembtn.ContextMenuStripEx = null;
-            AMURedeembtn.CornerRadiusBottomLeft = 25;
-            AMURedeembtn.CornerRadiusBottomRight = 25;
-            AMURedeembtn.CornerRadiusTopLeft = 25;
-            AMURedeembtn.CornerRadiusTopRight = 25;
-            AMURedeembtn.CustomCursor = Cursors.Default;
-            AMURedeembtn.DisabledTextColor = Color.Gray;
-            AMURedeembtn.EnableLongPress = false;
-            AMURedeembtn.EnablePressAnimation = true;
-            AMURedeembtn.EnableRippleEffect = true;
-            AMURedeembtn.EnableShadow = false;
-            AMURedeembtn.EnableTextWrapping = false;
-            AMURedeembtn.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMURedeembtn.ForeColor = Color.White;
-            AMURedeembtn.GlowColor = Color.FromArgb(100, 255, 255, 255);
-            AMURedeembtn.GlowIntensity = 100;
-            AMURedeembtn.GlowRadius = 20F;
-            AMURedeembtn.GradientBackground = false;
-            AMURedeembtn.GradientColor = Color.FromArgb(114, 168, 255);
-            AMURedeembtn.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            AMURedeembtn.HintText = null;
-            AMURedeembtn.HoverBackColor = Color.SeaGreen;
-            AMURedeembtn.HoverFontStyle = FontStyle.Regular;
-            AMURedeembtn.HoverTextColor = Color.White;
-            AMURedeembtn.HoverTransitionDuration = 250;
-            AMURedeembtn.ImageAlign = ContentAlignment.MiddleLeft;
-            AMURedeembtn.ImagePadding = 5;
-            AMURedeembtn.ImageSize = new Size(16, 16);
-            AMURedeembtn.IsRadial = true;
-            AMURedeembtn.IsReadOnly = false;
-            AMURedeembtn.IsToggleButton = false;
-            AMURedeembtn.IsToggled = false;
-            AMURedeembtn.Location = new Point(15, 499);
-            AMURedeembtn.LongPressDurationMS = 1000;
-            AMURedeembtn.Margin = new Padding(0);
-            AMURedeembtn.Name = "AMURedeembtn";
-            AMURedeembtn.NormalFontStyle = FontStyle.Regular;
-            AMURedeembtn.ParticleColor = Color.FromArgb(200, 200, 200);
-            AMURedeembtn.ParticleCount = 15;
-            AMURedeembtn.PressAnimationScale = 0.97F;
-            AMURedeembtn.PressedBackColor = Color.LightGreen;
-            AMURedeembtn.PressedFontStyle = FontStyle.Regular;
-            AMURedeembtn.PressTransitionDuration = 150;
-            AMURedeembtn.ReadOnlyTextColor = Color.White;
-            AMURedeembtn.RippleColor = Color.FromArgb(255, 255, 255);
-            AMURedeembtn.RippleOpacity = 0.3F;
-            AMURedeembtn.RippleRadiusMultiplier = 0.6F;
-            AMURedeembtn.ShadowBlur = 5;
-            AMURedeembtn.ShadowColor = Color.FromArgb(100, 0, 0, 0);
-            AMURedeembtn.ShadowOffset = new Point(2, 2);
-            AMURedeembtn.ShakeDuration = 500;
-            AMURedeembtn.ShakeIntensity = 5;
-            AMURedeembtn.Size = new Size(125, 55);
-            AMURedeembtn.TabIndex = 14;
-            AMURedeembtn.Text = "Point";
-            AMURedeembtn.TextAlign = ContentAlignment.MiddleCenter;
-            AMURedeembtn.TextColor = Color.White;
-            AMURedeembtn.TooltipText = null;
-            AMURedeembtn.UseAdvancedRendering = true;
-            AMURedeembtn.UseParticles = false;
+            AMUCompletedChallengesListbx.BackColor = Color.FromArgb(192, 255, 192);
+            AMUCompletedChallengesListbx.BorderStyle = BorderStyle.FixedSingle;
+            AMUCompletedChallengesListbx.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUCompletedChallengesListbx.ForeColor = Color.FromArgb(0, 64, 0);
+            AMUCompletedChallengesListbx.FormattingEnabled = true;
+            AMUCompletedChallengesListbx.HorizontalScrollbar = true;
+            AMUCompletedChallengesListbx.ItemHeight = 30;
+            AMUCompletedChallengesListbx.Location = new Point(15, 372);
+            AMUCompletedChallengesListbx.Margin = new Padding(0);
+            AMUCompletedChallengesListbx.Name = "AMUCompletedChallengesListbx";
+            AMUCompletedChallengesListbx.Size = new Size(587, 182);
+            AMUCompletedChallengesListbx.TabIndex = 7;
             // 
-            // AMUPointstbx
+            // AMUChallengeUpdatesListbx
             // 
-            AMUPointstbx.AccessibleDescription = "A customizable text input field.";
-            AMUPointstbx.AccessibleName = "Text Box";
-            AMUPointstbx.AccessibleRole = AccessibleRole.Text;
-            AMUPointstbx.BackColor = Color.Transparent;
-            AMUPointstbx.BlinkCount = 3;
-            AMUPointstbx.BlinkShadow = false;
-            AMUPointstbx.BorderColor1 = Color.Green;
-            AMUPointstbx.BorderColor2 = Color.Green;
-            AMUPointstbx.BorderFocusColor1 = Color.Green;
-            AMUPointstbx.BorderFocusColor2 = Color.Green;
-            AMUPointstbx.BorderSize = 2;
-            AMUPointstbx.CanShake = true;
-            AMUPointstbx.ContinuousBlink = false;
-            AMUPointstbx.CornerRadiusBottomLeft = 10;
-            AMUPointstbx.CornerRadiusBottomRight = 10;
-            AMUPointstbx.CornerRadiusTopLeft = 10;
-            AMUPointstbx.CornerRadiusTopRight = 10;
-            AMUPointstbx.CursorBlinkRate = 500;
-            AMUPointstbx.CursorColor = Color.Black;
-            AMUPointstbx.CursorHeight = 26;
-            AMUPointstbx.CursorOffset = 0;
-            AMUPointstbx.CursorStyle = SiticoneNetCoreUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
-            AMUPointstbx.CursorWidth = 1;
-            AMUPointstbx.DisabledBackColor = Color.WhiteSmoke;
-            AMUPointstbx.DisabledBorderColor = Color.LightGray;
-            AMUPointstbx.DisabledTextColor = Color.Gray;
-            AMUPointstbx.EnableDropShadow = false;
-            AMUPointstbx.FillColor1 = Color.White;
-            AMUPointstbx.FillColor2 = Color.White;
-            AMUPointstbx.Font = new Font("Poppins Medium", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AMUPointstbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMUPointstbx.HoverBorderColor1 = Color.Green;
-            AMUPointstbx.HoverBorderColor2 = Color.Green;
-            AMUPointstbx.IsEnabled = true;
-            AMUPointstbx.Location = new Point(15, 419);
-            AMUPointstbx.Margin = new Padding(0);
-            AMUPointstbx.Name = "AMUPointstbx";
-            AMUPointstbx.PlaceholderColor = Color.Gray;
-            AMUPointstbx.PlaceholderText = "0";
-            AMUPointstbx.ReadOnlyBorderColor1 = Color.LightGray;
-            AMUPointstbx.ReadOnlyBorderColor2 = Color.LightGray;
-            AMUPointstbx.ReadOnlyFillColor1 = Color.WhiteSmoke;
-            AMUPointstbx.ReadOnlyFillColor2 = Color.WhiteSmoke;
-            AMUPointstbx.ReadOnlyPlaceholderColor = Color.DarkGray;
-            AMUPointstbx.SelectionBackColor = Color.FromArgb(77, 77, 255);
-            AMUPointstbx.ShadowAnimationDuration = 1;
-            AMUPointstbx.ShadowBlur = 10;
-            AMUPointstbx.ShadowColor = Color.FromArgb(15, 0, 0, 0);
-            AMUPointstbx.Size = new Size(222, 50);
-            AMUPointstbx.SolidBorderColor = Color.Green;
-            AMUPointstbx.SolidBorderFocusColor = Color.Green;
-            AMUPointstbx.SolidBorderHoverColor = Color.Green;
-            AMUPointstbx.SolidFillColor = Color.FromArgb(192, 255, 192);
-            AMUPointstbx.TabIndex = 15;
-            AMUPointstbx.TextPadding = new Padding(11, 2, 11, 2);
-            AMUPointstbx.ValidationErrorMessage = "Invalid input.";
-            AMUPointstbx.ValidationFunction = null;
+            AMUChallengeUpdatesListbx.BackColor = Color.FromArgb(192, 255, 192);
+            AMUChallengeUpdatesListbx.BorderStyle = BorderStyle.FixedSingle;
+            AMUChallengeUpdatesListbx.Font = new Font("Poppins", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUChallengeUpdatesListbx.ForeColor = Color.FromArgb(0, 64, 0);
+            AMUChallengeUpdatesListbx.FormattingEnabled = true;
+            AMUChallengeUpdatesListbx.HorizontalScrollbar = true;
+            AMUChallengeUpdatesListbx.ItemHeight = 30;
+            AMUChallengeUpdatesListbx.Location = new Point(15, 143);
+            AMUChallengeUpdatesListbx.Margin = new Padding(0);
+            AMUChallengeUpdatesListbx.Name = "AMUChallengeUpdatesListbx";
+            AMUChallengeUpdatesListbx.Size = new Size(587, 182);
+            AMUChallengeUpdatesListbx.TabIndex = 7;
+            // 
+            // AMUTitle
+            // 
+            AMUTitle.AutoSize = true;
+            AMUTitle.BackColor = Color.Transparent;
+            AMUTitle.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUTitle.ForeColor = Color.Green;
+            AMUTitle.Location = new Point(2, 0);
+            AMUTitle.Margin = new Padding(0);
+            AMUTitle.Name = "AMUTitle";
+            AMUTitle.Size = new Size(235, 53);
+            AMUTitle.TabIndex = 0;
+            AMUTitle.Text = "Monitor Users";
+            AMUTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // AMUCompletedChallengeslbl
+            // 
+            AMUCompletedChallengeslbl.AutoSize = true;
+            AMUCompletedChallengeslbl.BackColor = Color.Transparent;
+            AMUCompletedChallengeslbl.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUCompletedChallengeslbl.ForeColor = Color.Green;
+            AMUCompletedChallengeslbl.Location = new Point(15, 336);
+            AMUCompletedChallengeslbl.Margin = new Padding(0);
+            AMUCompletedChallengeslbl.Name = "AMUCompletedChallengeslbl";
+            AMUCompletedChallengeslbl.Size = new Size(330, 36);
+            AMUCompletedChallengeslbl.TabIndex = 0;
+            AMUCompletedChallengeslbl.Text = "Completed Challenge Updates";
+            AMUCompletedChallengeslbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // AMUChallengeUpdateslbl
+            // 
+            AMUChallengeUpdateslbl.AutoSize = true;
+            AMUChallengeUpdateslbl.BackColor = Color.Transparent;
+            AMUChallengeUpdateslbl.Font = new Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AMUChallengeUpdateslbl.ForeColor = Color.Green;
+            AMUChallengeUpdateslbl.Location = new Point(15, 107);
+            AMUChallengeUpdateslbl.Margin = new Padding(0);
+            AMUChallengeUpdateslbl.Name = "AMUChallengeUpdateslbl";
+            AMUChallengeUpdateslbl.Size = new Size(211, 36);
+            AMUChallengeUpdateslbl.TabIndex = 0;
+            AMUChallengeUpdateslbl.Text = "Challenge Updates";
+            AMUChallengeUpdateslbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // AdminMonitorUsers
             // 
@@ -510,7 +448,7 @@
         #endregion
 
         private Panel AMUMainPanel;
-        private ListBox AMUCompletedChallengestxt;
+        private ListBox AMUCompletedChallengesListbx;
         private ListBox AMUChallengeUpdatesListbx;
         private Label AMUTitle;
         private Label AMUCompletedChallengeslbl;
@@ -527,7 +465,6 @@
         private Label AMUSecondPlacelbl;
         private Label AMUFirstPlacelbl;
         private Label AMULeaderboardTitle;
-        private SiticoneNetCoreUI.SiticoneButton AMURedeembtn;
-        private SiticoneNetCoreUI.SiticoneTextBox AMUPointstbx;
+        private SiticoneNetCoreUI.SiticoneButton AMURefreshbtn;
     }
 }

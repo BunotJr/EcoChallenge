@@ -65,7 +65,6 @@
             ARADateTimebx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ARADateTimebx.ForeColor = Color.FromArgb(0, 64, 0);
             ARADateTimebx.FormattingEnabled = true;
-            ARADateTimebx.Items.AddRange(new object[] { "Barangay" });
             ARADateTimebx.Location = new Point(605, 72);
             ARADateTimebx.Margin = new Padding(0);
             ARADateTimebx.Name = "ARADateTimebx";
@@ -78,7 +77,6 @@
             ARABrgyCategorybx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ARABrgyCategorybx.ForeColor = Color.FromArgb(0, 64, 0);
             ARABrgyCategorybx.FormattingEnabled = true;
-            ARABrgyCategorybx.Items.AddRange(new object[] { "Weekly", "Monthly", "Yearly" });
             ARABrgyCategorybx.Location = new Point(156, 72);
             ARABrgyCategorybx.Margin = new Padding(0);
             ARABrgyCategorybx.Name = "ARABrgyCategorybx";

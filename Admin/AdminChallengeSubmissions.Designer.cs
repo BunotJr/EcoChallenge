@@ -37,6 +37,8 @@ namespace EcoChallenge.Admin
             ARCSSubmissionsdgv = new DataGridView();
             ARCSProofImagelbl = new Label();
             ARCSTitle = new Label();
+            ARCSPointstbx = new SiticoneTextBox();
+            ARCSPointslbl = new Label();
             ARCSMainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ARCSProofImagebx).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ARCSSubmissionsdgv).BeginInit();
@@ -44,10 +46,12 @@ namespace EcoChallenge.Admin
             // 
             // ARCSMainPanel
             // 
+            ARCSMainPanel.Controls.Add(ARCSPointstbx);
             ARCSMainPanel.Controls.Add(ARCSProofImagebx);
             ARCSMainPanel.Controls.Add(ARCSApprovebtn);
             ARCSMainPanel.Controls.Add(ARCSRejectbtn);
             ARCSMainPanel.Controls.Add(ARCSSubmissionsdgv);
+            ARCSMainPanel.Controls.Add(ARCSPointslbl);
             ARCSMainPanel.Controls.Add(ARCSProofImagelbl);
             ARCSMainPanel.Controls.Add(ARCSTitle);
             ARCSMainPanel.Location = new Point(22, 20);
@@ -62,7 +66,7 @@ namespace EcoChallenge.Admin
             ARCSProofImagebx.Location = new Point(32, 106);
             ARCSProofImagebx.Margin = new Padding(0);
             ARCSProofImagebx.Name = "ARCSProofImagebx";
-            ARCSProofImagebx.Size = new Size(265, 265);
+            ARCSProofImagebx.Size = new Size(250, 250);
             ARCSProofImagebx.SizeMode = PictureBoxSizeMode.Zoom;
             ARCSProofImagebx.TabIndex = 11;
             ARCSProofImagebx.TabStop = false;
@@ -116,7 +120,7 @@ namespace EcoChallenge.Admin
             ARCSApprovebtn.IsReadOnly = false;
             ARCSApprovebtn.IsToggleButton = false;
             ARCSApprovebtn.IsToggled = false;
-            ARCSApprovebtn.Location = new Point(32, 455);
+            ARCSApprovebtn.Location = new Point(15, 499);
             ARCSApprovebtn.LongPressDurationMS = 1000;
             ARCSApprovebtn.Margin = new Padding(0);
             ARCSApprovebtn.Name = "ARCSApprovebtn";
@@ -194,7 +198,7 @@ namespace EcoChallenge.Admin
             ARCSRejectbtn.IsReadOnly = false;
             ARCSRejectbtn.IsToggleButton = false;
             ARCSRejectbtn.IsToggled = false;
-            ARCSRejectbtn.Location = new Point(172, 455);
+            ARCSRejectbtn.Location = new Point(179, 499);
             ARCSRejectbtn.LongPressDurationMS = 1000;
             ARCSRejectbtn.Margin = new Padding(0);
             ARCSRejectbtn.Name = "ARCSRejectbtn";
@@ -259,6 +263,79 @@ namespace EcoChallenge.Admin
             ARCSTitle.TabIndex = 0;
             ARCSTitle.Text = "Review Challenge Submissions";
             // 
+            // ARCSPointstbx
+            // 
+            ARCSPointstbx.AccessibleDescription = "A customizable text input field.";
+            ARCSPointstbx.AccessibleName = "Text Box";
+            ARCSPointstbx.AccessibleRole = AccessibleRole.Text;
+            ARCSPointstbx.BackColor = Color.Transparent;
+            ARCSPointstbx.BlinkCount = 3;
+            ARCSPointstbx.BlinkShadow = false;
+            ARCSPointstbx.BorderColor1 = Color.Green;
+            ARCSPointstbx.BorderColor2 = Color.Green;
+            ARCSPointstbx.BorderFocusColor1 = Color.Green;
+            ARCSPointstbx.BorderFocusColor2 = Color.Green;
+            ARCSPointstbx.BorderSize = 2;
+            ARCSPointstbx.CanShake = true;
+            ARCSPointstbx.ContinuousBlink = false;
+            ARCSPointstbx.CornerRadiusBottomLeft = 10;
+            ARCSPointstbx.CornerRadiusBottomRight = 10;
+            ARCSPointstbx.CornerRadiusTopLeft = 10;
+            ARCSPointstbx.CornerRadiusTopRight = 10;
+            ARCSPointstbx.CursorBlinkRate = 500;
+            ARCSPointstbx.CursorColor = Color.Black;
+            ARCSPointstbx.CursorHeight = 26;
+            ARCSPointstbx.CursorOffset = 0;
+            ARCSPointstbx.CursorStyle = SiticoneNetCoreUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+            ARCSPointstbx.CursorWidth = 1;
+            ARCSPointstbx.DisabledBackColor = Color.WhiteSmoke;
+            ARCSPointstbx.DisabledBorderColor = Color.LightGray;
+            ARCSPointstbx.DisabledTextColor = Color.Gray;
+            ARCSPointstbx.EnableDropShadow = false;
+            ARCSPointstbx.FillColor1 = Color.White;
+            ARCSPointstbx.FillColor2 = Color.White;
+            ARCSPointstbx.Font = new Font("Poppins Medium", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ARCSPointstbx.ForeColor = Color.FromArgb(0, 64, 0);
+            ARCSPointstbx.HoverBorderColor1 = Color.Green;
+            ARCSPointstbx.HoverBorderColor2 = Color.Green;
+            ARCSPointstbx.IsEnabled = true;
+            ARCSPointstbx.Location = new Point(32, 415);
+            ARCSPointstbx.Margin = new Padding(0);
+            ARCSPointstbx.Name = "ARCSPointstbx";
+            ARCSPointstbx.PlaceholderColor = Color.Gray;
+            ARCSPointstbx.PlaceholderText = "0";
+            ARCSPointstbx.ReadOnlyBorderColor1 = Color.LightGray;
+            ARCSPointstbx.ReadOnlyBorderColor2 = Color.LightGray;
+            ARCSPointstbx.ReadOnlyFillColor1 = Color.WhiteSmoke;
+            ARCSPointstbx.ReadOnlyFillColor2 = Color.WhiteSmoke;
+            ARCSPointstbx.ReadOnlyPlaceholderColor = Color.DarkGray;
+            ARCSPointstbx.SelectionBackColor = Color.FromArgb(77, 77, 255);
+            ARCSPointstbx.ShadowAnimationDuration = 1;
+            ARCSPointstbx.ShadowBlur = 10;
+            ARCSPointstbx.ShadowColor = Color.FromArgb(15, 0, 0, 0);
+            ARCSPointstbx.Size = new Size(250, 50);
+            ARCSPointstbx.SolidBorderColor = Color.Green;
+            ARCSPointstbx.SolidBorderFocusColor = Color.Green;
+            ARCSPointstbx.SolidBorderHoverColor = Color.Green;
+            ARCSPointstbx.SolidFillColor = Color.FromArgb(192, 255, 192);
+            ARCSPointstbx.TabIndex = 17;
+            ARCSPointstbx.TextPadding = new Padding(11, 2, 11, 2);
+            ARCSPointstbx.ValidationErrorMessage = "Invalid input.";
+            ARCSPointstbx.ValidationFunction = null;
+            // 
+            // ARCSPointslbl
+            // 
+            ARCSPointslbl.AutoSize = true;
+            ARCSPointslbl.BackColor = Color.Transparent;
+            ARCSPointslbl.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ARCSPointslbl.ForeColor = Color.Green;
+            ARCSPointslbl.Location = new Point(32, 379);
+            ARCSPointslbl.Margin = new Padding(0);
+            ARCSPointslbl.Name = "ARCSPointslbl";
+            ARCSPointslbl.Size = new Size(128, 36);
+            ARCSPointslbl.TabIndex = 0;
+            ARCSPointslbl.Text = "Give Points";
+            // 
             // AdminChallengeSubmissions
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -285,5 +362,7 @@ namespace EcoChallenge.Admin
         private PictureBox ARCSProofImagebx;
         private Label ARCSProofImagelbl;
         private SiticoneButton ARCSApprovebtn;
+        private SiticoneTextBox ARCSPointstbx;
+        private Label ARCSPointslbl;
     }
 }

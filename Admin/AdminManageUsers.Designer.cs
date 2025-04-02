@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             AMUMainPanel = new Panel();
             AMUActiveChallengestbx = new SiticoneNetCoreUI.SiticoneTextArea();
             AMUPointstbx = new SiticoneNetCoreUI.SiticoneTextBox();
@@ -60,7 +60,6 @@
             // AMUActiveChallengestbx
             // 
             AMUActiveChallengestbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMUActiveChallengestbx.BorderStyle = BorderStyle.None;
             AMUActiveChallengestbx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AMUActiveChallengestbx.ForeColor = Color.FromArgb(0, 64, 0);
             AMUActiveChallengestbx.Location = new Point(16, 198);
@@ -438,17 +437,16 @@
             AMUUsersdgv.AllowUserToResizeRows = false;
             AMUUsersdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMUUsersdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMUUsersdgv.BorderStyle = BorderStyle.None;
             AMUUsersdgv.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
             AMUUsersdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Green;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Green;
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(192, 255, 192);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            AMUUsersdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Green;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            AMUUsersdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             AMUUsersdgv.ColumnHeadersHeight = 50;
             AMUUsersdgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             AMUUsersdgv.EnableHeadersVisualStyles = false;

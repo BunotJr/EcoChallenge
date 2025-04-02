@@ -454,10 +454,10 @@
             // AMCDescriptiontbx
             // 
             AMCDescriptiontbx.BackColor = Color.FromArgb(192, 255, 192);
-            AMCDescriptiontbx.BorderStyle = BorderStyle.None;
+            AMCDescriptiontbx.BorderStyle = BorderStyle.FixedSingle;
             AMCDescriptiontbx.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AMCDescriptiontbx.ForeColor = Color.FromArgb(0, 64, 0);
-            AMCDescriptiontbx.Location = new Point(0, 201);
+            AMCDescriptiontbx.Location = new Point(0, 204);
             AMCDescriptiontbx.Margin = new Padding(0);
             AMCDescriptiontbx.MinimumSize = new Size(100, 100);
             AMCDescriptiontbx.Multiline = true;
@@ -521,7 +521,6 @@
             AMCPersonalChallengesdgv.AllowUserToDeleteRows = false;
             AMCPersonalChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMCPersonalChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMCPersonalChallengesdgv.BorderStyle = BorderStyle.None;
             AMCPersonalChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
@@ -568,7 +567,6 @@
             AMCCommunityChallengesdgv.AllowUserToDeleteRows = false;
             AMCCommunityChallengesdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AMCCommunityChallengesdgv.BackgroundColor = Color.FromArgb(192, 255, 192);
-            AMCCommunityChallengesdgv.BorderStyle = BorderStyle.None;
             AMCCommunityChallengesdgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             AMCCommunityChallengesdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             AMCCommunityChallengesdgv.ColumnHeadersHeight = 50;
@@ -625,7 +623,7 @@
             AMCPointstbx.HoverBorderColor1 = Color.Green;
             AMCPointstbx.HoverBorderColor2 = Color.Green;
             AMCPointstbx.IsEnabled = true;
-            AMCPointstbx.Location = new Point(2, 137);
+            AMCPointstbx.Location = new Point(0, 138);
             AMCPointstbx.Margin = new Padding(0);
             AMCPointstbx.Name = "AMCPointstbx";
             AMCPointstbx.PlaceholderColor = Color.Gray;

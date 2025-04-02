@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace EcoChallenge
@@ -28,6 +29,7 @@ namespace EcoChallenge
             LoadUsers();
         }
 
+        // Load Users
         private void LoadUsers()
         {
             using (OleDbConnection conn = new OleDbConnection(connString))
@@ -36,7 +38,7 @@ namespace EcoChallenge
                 {
                     conn.Open();
                     string query = @"
-                        SELECT UserID, Username, Points, ActiveChallenges, Status 
+                        SELECT UserID, Username, Points, Status 
                         FROM UserTable";
 
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, conn))
@@ -54,6 +56,7 @@ namespace EcoChallenge
             }
         }
 
+        // Display selected user's information
         private void AMUUsersdgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -61,10 +64,50 @@ namespace EcoChallenge
                 selectedUserID = Convert.ToInt32(AMUUsersdgv.Rows[e.RowIndex].Cells["UserID"].Value);
                 AMUUsernametbx.Text = AMUUsersdgv.Rows[e.RowIndex].Cells["Username"].Value.ToString();
                 AMUPointstbx.Text = AMUUsersdgv.Rows[e.RowIndex].Cells["Points"].Value.ToString();
-                AMUActiveChallengestbx.Text = AMUUsersdgv.Rows[e.RowIndex].Cells["ActiveChallenges"].Value.ToString();
+                // Load active challenges
+                LoadUserChallenges(selectedUserID);
             }
         }
 
+        // Load challenges for the selected user
+        private void LoadUserChallenges(int userID)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT C.Title 
+                        FROM ChallengesTable C
+                        JOIN UserChallengesTable UC ON C.ChallengeID = UC.ChallengeID
+                        WHERE UC.UserID = ? AND UC.Status = 'Completed'"; // Example: Completed challenges
+
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", userID);
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        // Populate the challenges in the TextBox
+                        StringBuilder challengeList = new StringBuilder();
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            challengeList.AppendLine(row["Title"].ToString());
+                        }
+
+                        AMUActiveChallengestbx.Text = challengeList.ToString(); // Display challenges in the TextBox
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading user challenges: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // Ban user
         private void AMUBanbtn_Click(object sender, EventArgs e)
         {
             if (selectedUserID == -1)
@@ -76,6 +119,7 @@ namespace EcoChallenge
             UpdateUserStatus("Banned");
         }
 
+        // Unban user
         private void AMUUnbanbtn_Click(object sender, EventArgs e)
         {
             if (selectedUserID == -1)
@@ -87,6 +131,7 @@ namespace EcoChallenge
             UpdateUserStatus("Active");
         }
 
+        // Update user status (Ban/Unban)
         private void UpdateUserStatus(string status)
         {
             using (OleDbConnection conn = new OleDbConnection(connString))
@@ -114,6 +159,7 @@ namespace EcoChallenge
             }
         }
 
+        // Refresh user list
         private void AMURefreshbtn_Click(object sender, EventArgs e)
         {
             LoadUsers();
